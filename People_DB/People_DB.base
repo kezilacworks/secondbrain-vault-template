@@ -1,0 +1,39 @@
+views:
+  - type: table
+    name: 전체
+    filters:
+      and:
+        - file.inFolder("People_DB")
+    order:
+      - file.name
+      - 관계
+      - 관계_유형
+      - 소속
+      - 직책
+      - 친밀도
+      - 첫_만남
+      - 최근_접촉
+      - 상태
+    sort:
+      - property: 관계
+        direction: ASC
+      - property: 친밀도
+        direction: DESC
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: 업무
+    filters:
+      and:
+        - file.inFolder("People_DB")
+        - 관계 == "업무"
+    order:
+      - file.name
+      - 관계_유형
+      - 소속
+      - 직책
+      - 최근_접촉
+      - 상태
+    sort:
+      - property: 최근_접촉
+        direction: DESC

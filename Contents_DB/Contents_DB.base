@@ -1,0 +1,43 @@
+formulas:
+  진척도: if(전체분량 > 0, (현재진행 / 전체분량 * 100).toFixed(1) + "%", "")
+properties:
+  formula.진척도:
+    displayName: 진척도(%)
+views:
+  - type: table
+    name: 전체
+    filters:
+      and:
+        - file.inFolder("Contents_DB")
+    order:
+      - file.name
+      - 카테고리
+      - 장르
+      - 별점
+      - 상태
+      - 감상일
+      - formula.진척도
+      - 현재진행
+      - 전체분량
+      - 시즌_권
+      - 창작자
+      - 출연진
+      - 연재요일
+      - 감정
+    sort:
+      - property: file.name
+        direction: ASC
+      - property: 장르
+        direction: ASC
+      - property: 연재요일
+        direction: ASC
+      - property: 시즌_권
+        direction: DESC
+      - property: 감상일
+        direction: DESC
+      - property: 별점
+        direction: DESC
+    columnSize:
+      note.장르: 371
+  - type: table
+    name: 오토

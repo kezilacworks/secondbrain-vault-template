@@ -1,0 +1,13 @@
+{
+  "name": "obsidian-vault-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-index": "node scripts/build-index.mjs",
+    "build-search-corpus": "node scripts/build-search-corpus.mjs"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}

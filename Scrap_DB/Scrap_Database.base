@@ -1,0 +1,15 @@
+views:
+  - type: table
+    name: 표
+    filters:
+      and:
+        - file.inFolder("Scrap_DB")
+    order:
+      - file.name
+      - 용도
+      - 유형
+      - 작성자
+      - 분야
+      - 생성일
+      - 단계
+      - 메모

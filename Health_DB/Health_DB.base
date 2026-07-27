@@ -1,0 +1,64 @@
+views:
+  - type: table
+    name: 데일리 전체
+    filters:
+      and:
+        - file.inFolder("Health_DB/Health_데일리")
+    order:
+      - file.name
+      - 날짜
+      - 컨디션
+      - 체중
+      - 수면시간
+      - 물
+    sort:
+      - property: 날짜
+        direction: DESC
+  - type: table
+    name: 인바디 추적
+    filters:
+      and:
+        - file.inFolder("Health_DB/Health_데일리")
+        - 체중 is_not_empty
+    order:
+      - file.name
+      - 날짜
+      - 체중
+      - 골격근량
+      - 체지방률
+      - BMI
+      - 인바디점수
+    sort:
+      - property: 날짜
+        direction: DESC
+  - type: table
+    name: 건강지식
+    filters:
+      and:
+        - file.inFolder("Health_DB/Health_지식")
+    order:
+      - file.name
+      - 주제
+      - 상태
+      - 갱신일
+    sort:
+      - property: 갱신일
+        direction: DESC
+      - property: file.name
+        direction: ASC
+  - type: table
+    name: 깨달음/게시
+    filters:
+      and:
+        - file.inFolder("Health_DB/Health_깨달음")
+    order:
+      - file.name
+      - 주제
+      - 상태
+      - 게시플랫폼
+      - 게시일
+    sort:
+      - property: 게시일
+        direction: DESC
+      - property: 상태
+        direction: ASC

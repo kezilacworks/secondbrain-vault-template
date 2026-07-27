@@ -1,0 +1,69 @@
+name: Build Vault Index
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    # 자동생성 산출물(META/INDEX/CORPUS)만 바뀐 push는 무시 → 인덱서 자기 커밋 루프 방지.
+    # 그 외 모든 변경(노트 .md·스크립트·설정 등)은 빌드한다. [skip ci]와 이중 안전장치.
+    # 글롭 패턴: 신규 DB(TRAVEL 등)가 추가돼도 목록 갱신 불필요. (*는 /를 넘지 않음 = 루트 한정)
+    paths-ignore:
+      - '*_META.md'
+      - '*_INDEX.json'
+      - 'INDEX.md'
+      - 'SEARCH_CORPUS.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # 빌드 도구는 .build/ 안에 있다(package.json·node_modules·scripts). npm은 거기서 실행.
+      # 스크립트의 VAULT_ROOT는 파일 위치 기준이라 산출물(META/INDEX/CORPUS)은 루트로 간다.
+      - name: Install dependencies
+        working-directory: .build
+        run: npm install --no-audit --no-fund
+
+      - name: Build index files
+        working-directory: .build
+        run: npm run build-index
+
+      - name: Build search corpus
+        working-directory: .build
+        run: npm run build-search-corpus
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 글롭 add: META_CONFIGS에 DB가 추가되면 산출물도 자동 포함 (하드코딩 목록 금지 원칙)
+          git add -- *_META.md *_INDEX.json SEARCH_CORPUS.json
+          if git diff --staged --quiet; then
+            echo "No index changes to commit"
+            exit 0
+          fi
+          git commit -m "chore: rebuild vault index + search corpus [skip ci]"
+          # 사용자 push(obsidian-git 3분 주기)와 경쟁할 수 있으므로 rebase 후 push를 3회 재시도
+          for i in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "push 실패 ($i/3) — rebase 후 재시도"
+            git pull --rebase --autostash || exit 1
+          done
+          echo "::error::인덱스 커밋 push가 3회 모두 실패했습니다"
+          exit 1
