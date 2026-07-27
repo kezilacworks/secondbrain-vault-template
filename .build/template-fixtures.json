@@ -21,7 +21,8 @@
     "창작자",
     "출연진",
     "현재진행",
-    "전체분량"
+    "전체분량",
+    "주제"
   ],
   "link_domain_allowlist": [
     "example.com",
