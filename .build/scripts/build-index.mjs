@@ -113,6 +113,34 @@ const META_CONFIGS = [
   },
 ];
 
+// ---------- schema-ext (.vault/schema-ext.json) — 테넌트 확장 정본 중 인덱서 몫 ----------
+// kind_extra: 등재 필터 화이트리스트 확장(커스텀 종류 개방) / meta_columns_extra: META 컬럼 끝-append.
+// 파일이 없으면 완전 no-op. 워커 게이트(contracts.ts)와 같은 파일을 읽어 게이트·인덱서 드리프트가 없다.
+let SCHEMA_EXT = {};
+try {
+  SCHEMA_EXT = JSON.parse(await fs.readFile(path.join(VAULT_ROOT, '.vault', 'schema-ext.json'), 'utf-8'));
+} catch { /* 없음/파싱 실패 → 확장 없음 */ }
+const EXT_FAMILY_BY_OUTPUT = {
+  'WORKS_META.md': 'works', 'CONTENTS_META.md': 'contents', 'SCRAP_META.md': 'scrap',
+  'TRAVEL_META.md': 'travel', 'KNOWHOW_META.md': 'knowhow', 'HEALTH_META.md': 'health',
+};
+for (const cfg of META_CONFIGS) {
+  const fam = SCHEMA_EXT[EXT_FAMILY_BY_OUTPUT[cfg.output]];
+  if (!fam) continue;
+  if (Array.isArray(fam.kind_extra) && fam.kind_extra.length) {
+    const extra = fam.kind_extra.map(String);
+    const baseFilter = cfg.filter;
+    // kind계 키(종류/유형/kind) 어느 쪽이든 확장값이면 등재 — KO/EN 로케일 공용. 템플릿 폴더 제외 관용구 유지.
+    cfg.filter = (fm, relPath) =>
+      baseFilter(fm, relPath) ||
+      (extra.includes(String(fm.종류 ?? fm.유형 ?? fm.kind ?? '')) && !String(relPath ?? '').includes('_템플릿/'));
+  }
+  if (Array.isArray(fam.meta_columns_extra) && fam.meta_columns_extra.length && Array.isArray(cfg.columns)) {
+    // ⚠️ 반드시 끝-append — 위치 기반 소비자 하위호환 관용구(중간 삽입 금지).
+    cfg.columns = [...cfg.columns, ...fam.meta_columns_extra.map(String)];
+  }
+}
+
 // 제외 규칙은 common.mjs로 일원화 (build-search-corpus.mjs와 공유).
 // 산출물(*_META.md 등)·충돌 사본(*_Conflict.*)은 isSkippedFile이 걸러낸다.
 
