@@ -99,43 +99,56 @@ const WORKSPACE_DIR_RE = /^W\d{2}_/;
 // 즉시 실패(경고 아님) — 새 필드명을 만들어 개인값을 숨기는 우회를 차단한다. 스키마가 실제로
 // 확장되면 이 배열도 같은 PR에서 함께 늘려야 한다.
 //
-// MEDIUM-D: enum 값이 고정된 필드(카테고리·종류·유형·장르·감정·분야·단계·용도·레벨·문서_역할·상태)와
-// 위키링크 패턴 필드(상위)는 여기서 제외하고 아래 ENUM_FIELDS/PATTERN_FIELDS로 옮겼다 — "알려진
+// MEDIUM-D: enum 값이 고정된 필드(category·kind·genre·감정·분야·단계·용도·레벨·문서_역할·status)와
+// 위키링크 패턴 필드(parent)는 여기서 제외하고 아래 ENUM_FIELDS/PATTERN_FIELDS로 옮겼다 — "알려진
 // 필드니까 무조건 통과"라는 프리패스가, enum 필드에 자유 서술 개인값을 숨기는 통로였다(리뷰어 재현:
-// 상태 필드에 실제 투병 이력을 서술한 자유 텍스트를 넣은 사례가 이전에는 무검증 통과). '주제'는
+// status 필드에 실제 투병 이력을 서술한 자유 텍스트를 넣은 사례가 이전에는 무검증 통과). '주제'는
 // 자유 텍스트라 personal_value_fields로 이동.
 // (주: 이 파일 자체가 공개 템플릿 repo에 실리고 게이트2가 .build까지 스캔하므로, 아래 셀프테스트
 // 픽스처에는 실제 민감 키워드 원문을 절대 쓰지 않는다 — 이전 라운드에도 한 번 겪은 자기참조 오탐 함정.)
+//
+// 2026-07-31 EN 스키마 전환: 계약 키만 EN명으로 옮겼다(작성일→created). 비계약 한국어 필드명은
+// 그대로다 — 계약 확장 결정 전까지 건드리지 않는 것이 현 방침이다.
 const KNOWN_FRONTMATTER_FIELDS = new Set([
-  'BMI', 'type',
+  'BMI', 'type', 'created',
   '감상일', '갱신일', '골격근량', '기간_시작', '기간_종료', '기초대사량', '날짜',
   '링크', '마지막_시청일', '메모', '물', '별점',
   '생성일', '수면시간', '시즌_권', '연재요일',
-  '인바디점수', '작성완료', '작성일', '작성자', '전체분량',
+  '인바디점수', '작성완료', '작성자', '전체분량',
   '창작자', '체중', '체지방량', '체지방률', '총_프로젝트', '출연진', '출처',
   '컨디션', '태그', '특이사항', '플랫폼', '현재진행',
 ]);
 
-// MEDIUM-D: enum 필드 — 값 집합은 worker/src/taxonomy.ts의 계약 enum(CONTENTS_CATEGORY_ENUM·
+// MEDIUM-D: enum 필드 — 값 집합은 worker/src/taxonomy-en.ts의 계약 enum(CONTENTS_CATEGORY_ENUM·
 // WORKS_KIND_ENUM·HEALTH_KIND_ENUM·TRAVEL_KIND_ENUM 등) + 템플릿 분류 허브 폴더명(Contents_장르·
-// Contents_감정·Scrap_분야·Scrap_단계·Scrap_용도) + 템플릿 실측값(레벨·문서_역할·상태·유형 일부)에서
-// 도출했다(2026-07-28, cleaned-template 기준). "유형"·"장르"는 리뷰어의 명시 목록엔 없었지만
-// taxonomy.ts의 CONTRACT_KEY_NAMES(종류·유형·카테고리·장르)에 카테고리·종류와 나란히 있고 같은
-// 허브-폴더 메커니즘을 쓰므로 동일하게 enum 처리했다(판단 근거는 보고서에 명시).
+// Contents_감정·Scrap_분야·Scrap_단계·Scrap_용도) + 템플릿 실측값(레벨·문서_역할 등)에서
+// 도출했다(2026-07-31, EN 전환 기준).
+//
+// 2026-07-31 EN 스키마 전환:
+//  - 계약 키를 EN명으로 옮겼다 — 카테고리→category, 장르→genre, 상태→status, 상위→parent.
+//  - **종류·유형은 EN 계약에서 kind 하나로 합쳐진다**(convert-vault-en.mjs의 KIND_SOURCE). 그래서
+//    두 목록도 kind 하나로 합쳤고, 값 집합은 DB별 kind 어휘의 합집합이다(place는 Health·Travel
+//    양쪽에 있어 한 번만 등장). 여기서 DB를 구분하지 않는 이유는 status와 같다 — 이 게이트의 목적은
+//    "enum 필드에 자유 서술을 숨기는 것"의 차단이지 DB별 정합성 판정이 아니다(그건 워커 L1 몫).
+//  - genre는 EN 계약에 대응 어휘가 없어(taxonomy-en에 GENRE_ENUM 부재, 변환기도 genre 값은
+//    매핑하지 않고 통과시킨다) 키만 EN이고 값은 한국어 그대로다.
 // `{...}` 형태 값은 템플릿 플레이스홀더 관례이므로 모든 enum 필드에서 통과시킨다.
 const PLACEHOLDER_VALUE_RE = /^\{.+\}$/;
 
 const ENUM_FIELDS = {
-  카테고리: ['영화', '드라마', '애니메이션', '만화', '책', '웹툰', '다큐멘터리', '예능'],
-  종류: [
-    '프로젝트', '기획', '업무', '실행계획', '워크스페이스', '인물', '포스팅', '위키페이지',
-    '데일리', '지식', '깨달음', '장소', '여행', '위시',
-  ],
-  유형: [
+  category: ['film', 'series', 'animation', 'comic', 'book', 'webtoon', 'documentary', 'variety'],
+  kind: [
+    // WORKS (taxonomy-en WORKS_KIND_ENUM)
+    'project', 'plan', 'task', 'action_plan', 'workspace', 'person', 'posting', 'wikipage',
+    // HEALTH / TRAVEL (HEALTH_KIND_ENUM · TRAVEL_KIND_ENUM — place 공유)
+    'daily', 'knowledge', 'insight', 'place', 'trip', 'wish',
+    // SCRAP (전환 전부터 EN)
     'article', 'tool', 'webpage', 'webtoon', 'resource', 'platform', 'instagram',
-    '단축키', '세팅', '테크닉', '트러블슈팅', '도구허브', '약어사전',
+    // KNOWHOW. abbreviation_dictionary는 루트 KNOWHOW_약어.md 전용 — 계약 밖(resolveContract가
+    // 루트 파일에 null을 주므로 워커 L1이 보지 않는다) 템플릿 로컬 값이라 lint에만 등재한다.
+    'shortcut', 'config', 'technique', 'troubleshooting', 'toolhub', 'abbreviation_dictionary',
   ],
-  장르: [
+  genre: [
     '힐링 일상', '블랙 코미디', '러브 코미디', '로맨스', '판타지', '드라마', '청춘', '학원',
     '시대극', '액션', '피카레스크', '재난', '일상', '코미디', '공포', 'SF', '스릴러', '모험',
   ],
@@ -148,17 +161,25 @@ const ENUM_FIELDS = {
   용도: ['일상업무', '글쓰기업무', '바이브코딩', '도구', '영상업무', '디자인업무'],
   레벨: [1, 2, 3, 4],
   문서_역할: ['정본'],
-  // Contents(감상 중/감상 완료/볼 예정)·Works(진행중/완료/준비중)·Health_지식(학습중/정리완료)·
-  // Health_깨달음(작성중/검토중/게시완료) 상태값 전체 합집합 — 필드가 DB마다 다른 의미로 재사용되므로
-  // DB 구분 없이 전역 합집합으로 검사(narrative 텍스트 차단이 목적이라 이 정도 느슨함은 무해).
-  상태: [
-    '감상 중', '감상 완료', '볼 예정', '진행중', '완료', '준비중',
-    '학습중', '정리완료', '작성중', '검토중', '게시완료',
+  // 정본 = worker/src/contracts.ts EN_STATUS_VOCAB의 DB별 어휘 전체 합집합. 필드가 DB마다 다른
+  // 의미로 재사용되므로 DB 구분 없이 전역 합집합으로 검사한다(narrative 텍스트 차단이 목적이라
+  // 이 정도 느슨함은 무해). EN_STATUS_VOCAB이 바뀌면 이 배열도 같은 PR에서 함께 고쳐야 한다.
+  //   WORKS    active·done·hold·planned
+  //   PEOPLE   active·done·hold
+  //   CONTENTS done·watching·planned
+  //   TRAVEL   planned·visited·want_revisit·wishlist·done
+  //   HEALTH   published·active·done·learning
+  // 주의: 전환 전 목록에 있던 Health_깨달음의 작성중·검토중은 EN_STATUS_VOCAB.HEALTH에 대응값이
+  // 없어 빠졌다(템플릿에 실제 사용 노트도 없다). 깨달음 초안/검토 상태를 쓰려면 신조어를 여기
+  // 임의로 넣지 말고 EN_STATUS_VOCAB부터 확장해야 한다.
+  status: [
+    'active', 'done', 'hold', 'planned', 'watching',
+    'visited', 'want_revisit', 'wishlist', 'published', 'learning',
   ],
 };
 
 const PATTERN_FIELDS = {
-  상위: /^\[\[.+\]\]$/,
+  parent: /^\[\[.+\]\]$/,
 };
 
 const URL_RE = /https?:\/\/[^\s"'<>)\]]+/g;
@@ -776,7 +797,7 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'Scrap_DB/본문링크.md',
-      raw: '---\n유형: article\n---\n본문 중 https://evil-leak.example.net/x 링크\n',
+      raw: '---\nkind: article\n---\n본문 중 https://evil-leak.example.net/x 링크\n',
       expect: true,
       label: '본문의 미승인 URL 도메인 (허용 도메인과 유사한 이름 함정)',
     },
@@ -788,13 +809,13 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'W01_워크스페이스/샘플.md',
-      raw: '---\n카테고리: 개발연구\n---\n본문\n',
+      raw: '---\ncategory: 개발연구\n---\n본문\n',
       expect: true,
       label: '직군 어휘 denylist — 본문/frontmatter 값',
     },
     {
       relPath: 'W03_개발연구/샘플.md',
-      raw: '---\n종류: 워크스페이스\n---\n본문\n',
+      raw: '---\nkind: workspace\n---\n본문\n',
       expect: true,
       label: '직군 어휘 denylist — 경로 자체',
     },
@@ -838,7 +859,7 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'Contents_DB/신규필드공란.md',
-      raw: '---\n비고:\n카테고리: 영화\n---\n본문\n',
+      raw: '---\n비고:\ncategory: film\n---\n본문\n',
       expect: false,
       label: '신규 필드지만 값이 공란 — 경고만(비차단), 정상 케이스',
     },
@@ -852,33 +873,41 @@ function buildSelfTestFiles() {
     // --- MEDIUM-D: enum 고정 필드에 자유 서술을 숨기는 시도 (리뷰어 재현 re3-1785167027/known 그대로) ---
     {
       relPath: 'Contents_DB/상태우회.md',
-      raw: '---\n카테고리: 영화\n장르: 스릴러\n상태: "2024년 투병 중 시청. 담당 주치의 소견 참고."\n---\n본문\n',
+      raw: '---\ncategory: film\ngenre: 스릴러\nstatus: "2024년 투병 중 시청. 담당 주치의 소견 참고."\n---\n본문\n',
       expect: true,
-      label: 'enum 고정 필드(상태)에 자유 서술 개인 정보를 숨기는 시도 — 이전에는 "알려진 필드"라 무검증 통과',
+      label: 'enum 고정 필드(status)에 자유 서술 개인 정보를 숨기는 시도 — 이전에는 "알려진 필드"라 무검증 통과',
     },
     {
       relPath: 'Contents_DB/상태정상.md',
-      raw: '---\n카테고리: 영화\n장르: 스릴러\n상태: 볼 예정\n---\n본문\n',
+      raw: '---\ncategory: film\ngenre: 스릴러\nstatus: planned\n---\n본문\n',
       expect: false,
-      label: '상태 필드에 정상 enum 값 — 정상 케이스',
+      label: 'status 필드에 정상 enum 값 — 정상 케이스',
+    },
+    {
+      // EN 전환 회귀 방지: status에 한국어 값을 쓰면 enum 밖이라 여기서 잡혀야 한다(워커 L1의
+      // checkStatusValue 한글 REJECT와 같은 취지를, 템플릿 커밋 시점에 한 번 더 거는 그물).
+      relPath: 'Contents_DB/상태한글.md',
+      raw: '---\ncategory: film\nstatus: 볼 예정\n---\n본문\n',
+      expect: true,
+      label: 'EN 전환 회귀 — status에 남은 한국어 어휘(볼 예정)는 enum 밖으로 검출돼야 함',
     },
     {
       relPath: 'W01_워크스페이스2/카테고리플레이스홀더.md',
-      raw: '---\n종류: 프로젝트\n카테고리: "{워크스페이스명}"\n---\n본문\n',
+      raw: '---\nkind: project\ncategory: "{workspace_name}"\n---\n본문\n',
       expect: false,
-      label: '카테고리 필드의 {placeholder} 템플릿 관례 — enum 예외로 정상 통과(정상 케이스)',
+      label: 'category 필드의 {placeholder} 템플릿 관례 — enum 예외로 정상 통과(정상 케이스)',
     },
     {
       relPath: 'Contents_DB/상위우회.md',
-      raw: '---\n카테고리: 영화\n상위: "다니던 병원 이름과 진료과"\n---\n본문\n',
+      raw: '---\ncategory: film\nparent: "다니던 병원 이름과 진료과"\n---\n본문\n',
       expect: true,
-      label: '패턴 고정 필드(상위)에 위키링크가 아닌 자유 서술을 숨기는 시도',
+      label: '패턴 고정 필드(parent)에 위키링크가 아닌 자유 서술을 숨기는 시도',
     },
     {
       relPath: 'Contents_DB/상위정상.md',
-      raw: '---\n카테고리: 영화\n상위: "[[W01_워크스페이스]]"\n---\n본문\n',
+      raw: '---\ncategory: film\nparent: "[[W01_워크스페이스]]"\n---\n본문\n',
       expect: false,
-      label: '상위 필드에 정상 위키링크 패턴 — 정상 케이스',
+      label: 'parent 필드에 정상 위키링크 패턴 — 정상 케이스',
     },
     {
       relPath: 'Health_DB/Health_지식/주제미승인.md',
@@ -954,7 +983,7 @@ function runDotBuildRealDiskTest() {
     // (d) 대조군: 평소대로 스캔되는 일반 파일.
     fs.writeFileSync(
       path.join(tmpRoot, 'Contents_DB', '평범한노트.md'),
-      '---\n카테고리: 영화\n---\n본문\n',
+      '---\ncategory: film\n---\n본문\n',
     );
 
     const result = runLint(tmpRoot);

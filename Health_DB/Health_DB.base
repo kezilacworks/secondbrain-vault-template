@@ -39,7 +39,7 @@ views:
     order:
       - file.name
       - 주제
-      - 상태
+      - status
       - 갱신일
     sort:
       - property: 갱신일
@@ -54,11 +54,11 @@ views:
     order:
       - file.name
       - 주제
-      - 상태
+      - status
       - 게시플랫폼
       - 게시일
     sort:
       - property: 게시일
         direction: DESC
-      - property: 상태
+      - property: status
         direction: ASC

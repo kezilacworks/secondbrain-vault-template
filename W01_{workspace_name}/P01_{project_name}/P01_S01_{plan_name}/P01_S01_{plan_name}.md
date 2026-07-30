@@ -1,9 +1,9 @@
 ---
-종류: 기획
-카테고리: "{워크스페이스명}"
-상위: "[[P01_{프로젝트명}]]"
+kind: plan
+category: "{workspace_name}"
+parent: "[[P01_{project_name}]]"
 레벨: 3
-상태: 완료
+status: done
 기간_시작: null
 기간_종료: null
 작성완료: true

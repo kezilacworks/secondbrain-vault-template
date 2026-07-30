@@ -32,23 +32,23 @@ const META_CONFIGS = [
     output: 'WORKS_META.md',
     json: 'WORKS_INDEX.json',
     dirsPattern: /^W\d{2}_/,
-    filter: (fm) => ['프로젝트', '기획', '업무', '실행계획'].includes(fm.종류),
-    columns: ['종류', '카테고리', '상태', '상위', '기간_시작', '기간_종료', '작성일', '문서_역할', '대체됨'],
+    filter: (fm) => ['project', 'plan', 'task', 'action_plan'].includes(fm.kind),
+    columns: ['kind', 'category', 'status', 'parent', '기간_시작', '기간_종료', 'created', '문서_역할', '대체됨'],
   },
   {
     output: 'CONTENTS_META.md',
     json: 'CONTENTS_INDEX.json',
     dirsPattern: /^Contents_DB$/,
-    filter: (fm) => fm.카테고리 !== undefined || fm.장르 !== undefined,
+    filter: (fm) => fm.category !== undefined || fm.genre !== undefined,
     // ⚠️ 신규 열은 반드시 끝에 append — 워커 parseMetaTable이 위치 기반이라 중간 삽입 시 기존 열 위치가 밀려 깨짐.
-    columns: ['카테고리', '장르', '상태', '별점', '감상일', '작성일', '감정', '창작자'],
+    columns: ['category', 'genre', 'status', '별점', '감상일', 'created', '감정', '창작자'],
   },
   {
     output: 'SCRAP_META.md',
     json: 'SCRAP_INDEX.json',
     dirsPattern: /^Scrap_DB$/,
-    filter: (fm) => fm.유형 !== undefined,
-    columns: ['유형', '분야', '단계', '용도', '생성일', '작성일'],
+    filter: (fm) => fm.kind !== undefined,
+    columns: ['kind', '분야', '단계', '용도', '생성일', 'created'],
   },
   {
     // 여행 DB. 종류 = 여행(일정) / 장소(다녀온 곳 카드) / 위시(가보고싶음).
@@ -57,16 +57,16 @@ const META_CONFIGS = [
     json: 'TRAVEL_INDEX.json',
     dirsPattern: /^Travel_DB$/,
     // 템플릿 폴더는 종류 값이 있어도 실데이터가 아니므로 경로로 제외
-    filter: (fm, relPath) => ['여행', '장소', '위시'].includes(fm.종류) && !relPath.includes('Travel_템플릿/'),
-    columns: ['종류', '국가', '지역', '분류', '상태', '별점', '기간_시작', '기간_종료', '최근_방문', '작성일'],
+    filter: (fm, relPath) => ['trip', 'place', 'wish'].includes(fm.kind) && !relPath.includes('Travel_템플릿/'),
+    columns: ['kind', '국가', '지역', '분류', 'status', '별점', '기간_시작', '기간_종료', '최근_방문', 'created'],
   },
   {
     // 노하우(개인 세팅·도구 팁). md는 도구/분야/유형 3축 그룹 형식(render). 허브 노트(유형:도구허브)는 제외.
     output: 'KNOWHOW_META.md',
     json: 'KNOWHOW_INDEX.json',
     dirsPattern: /^Knowhow_DB$/,
-    filter: (fm) => fm.유형 !== undefined && fm.유형 !== '도구허브',
-    columns: ['도구', '분야', '유형', '작성일'], // JSON 사이드카·하위호환용 (md는 아래 render가 그룹 형식 생성)
+    filter: (fm) => fm.kind !== undefined && fm.kind !== 'toolhub',
+    columns: ['도구', '분야', 'kind', 'created'], // JSON 사이드카·하위호환용 (md는 아래 render가 그룹 형식 생성)
     render: ({ rows, matchedDirs, parseFail }) =>
       [
         '# Knowhow DB 메타데이터',
@@ -83,7 +83,7 @@ const META_CONFIGS = [
         groupSection(rows, '분야'),
         '',
         '## 유형별 빠른 참조',
-        groupSection(rows, '유형'),
+        groupSection(rows, 'kind'),
         '',
         '---',
         '*이 파일은 .github/workflows/build-index.yml에 의해 자동 생성됩니다.*',
@@ -97,8 +97,8 @@ const META_CONFIGS = [
     output: 'HEALTH_META.md',
     json: 'HEALTH_INDEX.json',
     dirsPattern: /^Health_DB$/,
-    filter: (fm, relPath) => ['데일리', '지식', '깨달음'].includes(fm.종류) && !relPath.includes('Health_템플릿/'),
-    columns: ['종류', '날짜', '운동', '운동시간', '칼로리', '평균심박', '체중', '체지방률', '상태', '작성일'],
+    filter: (fm, relPath) => ['daily', 'knowledge', 'insight'].includes(fm.kind) && !relPath.includes('Health_템플릿/'),
+    columns: ['kind', '날짜', '운동', '운동시간', '칼로리', '평균심박', '체중', '체지방률', 'status', 'created'],
   },
   {
     // 소재위키 (W01/P06 — material-wiki 파이프라인이 매일 22시 자동 생성하는
@@ -108,8 +108,8 @@ const META_CONFIGS = [
     json: 'MATERIAL_WIKI_INDEX.json',
     dirsPattern: /^W\d{2}_/,
     // 테마 필드가 있는 실 페이지만 — MOC(목차)는 네비게이션이라 제외.
-    filter: (fm) => fm.종류 === '위키페이지' && fm.테마 !== undefined,
-    columns: ['테마', '태그', '장르', '감정', '소재수', '갱신일', '작성일'],
+    filter: (fm) => fm.kind === 'wikipage' && fm.테마 !== undefined,
+    columns: ['테마', '태그', 'genre', '감정', '소재수', '갱신일', 'created'],
   },
 ];
 

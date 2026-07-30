@@ -32,11 +32,11 @@ type: 가이드
 │   └── {YYYY-MM}/
 │       └── {YYYY-MM-DD}.md
 ├── Health_지식/                  # 건강 지식 (주제별, 갱신형)
-│   └── {주제명}.md
+│   └── {topic_name}.md
 ├── Health_깨달음/                # 인사이트 (SNS 게시용)
-│   └── {제목}.md
+│   └── {title}.md
 ├── Health_주제/                  # 주제 허브 (wikilink)
-│   └── {주제명}.md
+│   └── {topic_name}.md
 └── Health_템플릿/                # 템플릿 (원본 보존)
     ├── 데일리_템플릿.md
     └── 지식_템플릿.md

@@ -6,16 +6,16 @@ views:
         - file.inFolder("People_DB")
     order:
       - file.name
-      - 관계
-      - 관계_유형
+      - relation
+      - relation_type
       - 소속
       - 직책
       - 친밀도
       - 첫_만남
       - 최근_접촉
-      - 상태
+      - status
     sort:
-      - property: 관계
+      - property: relation
         direction: ASC
       - property: 친밀도
         direction: DESC
@@ -26,14 +26,14 @@ views:
     filters:
       and:
         - file.inFolder("People_DB")
-        - 관계 == "업무"
+        - relation == "work"
     order:
       - file.name
-      - 관계_유형
+      - relation_type
       - 소속
       - 직책
       - 최근_접촉
-      - 상태
+      - status
     sort:
       - property: 최근_접촉
         direction: DESC

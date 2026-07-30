@@ -1,9 +1,9 @@
 ---
-종류: 업무
-카테고리: "{워크스페이스명}"
-상위: "[[P01_S01_{기획명}]]"
+kind: task
+category: "{workspace_name}"
+parent: "[[P01_S01_{plan_name}]]"
 레벨: 4
-상태: 준비중
+status: planned
 기간_시작: null
 기간_종료: null
 작성완료: false

@@ -11,10 +11,10 @@ views:
         - file.inFolder("Contents_DB")
     order:
       - file.name
-      - 카테고리
-      - 장르
+      - category
+      - genre
       - 별점
-      - 상태
+      - status
       - 감상일
       - formula.진척도
       - 현재진행
@@ -27,7 +27,7 @@ views:
     sort:
       - property: file.name
         direction: ASC
-      - property: 장르
+      - property: genre
         direction: ASC
       - property: 연재요일
         direction: ASC
@@ -38,6 +38,6 @@ views:
       - property: 별점
         direction: DESC
     columnSize:
-      note.장르: 371
+      note.genre: 371
   - type: table
     name: 오토

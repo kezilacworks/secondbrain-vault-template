@@ -7,7 +7,7 @@ views:
     order:
       - file.name
       - 용도
-      - 유형
+      - kind
       - 작성자
       - 분야
       - 생성일

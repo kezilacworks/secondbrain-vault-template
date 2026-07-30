@@ -1,5 +1,5 @@
 ---
-유형: 약어사전
+kind: abbreviation_dictionary
 ---
 
 # KNOWHOW 약어 사전

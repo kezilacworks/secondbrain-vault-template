@@ -1,8 +1,8 @@
 ---
-종류: 워크스페이스
-카테고리: "{워크스페이스명}"
+kind: workspace
+category: "{workspace_name}"
 레벨: 1
-상태: 진행중
+status: active
 생성일:
 총_프로젝트: 1
 ---
