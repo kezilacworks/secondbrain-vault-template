@@ -40,7 +40,13 @@ const META_CONFIGS = [
     json: 'CONTENTS_INDEX.json',
     dirsPattern: /^Contents_DB$/,
     filter: (fm) => fm.category !== undefined || fm.genre !== undefined,
-    // ⚠️ 신규 열은 반드시 끝에 append — 워커 parseMetaTable이 위치 기반이라 중간 삽입 시 기존 열 위치가 밀려 깨짐.
+    // 열 순서 — 신규 열은 끝에 append하는 것을 기본으로 한다(강제는 아님).
+    // 2026-07-31 근거 정정(큐 31): 옛 주석은 "워커 parseMetaTable이 위치 기반이라 중간 삽입 시 깨진다"고
+    // 했으나 **그 함수는 현 워커에 없다**(src 전수 grep 0건). 실소비자는 read_index 하나인데
+    // (tools.ts) META를 파싱하지 않고 원문 텍스트 그대로 서빙하며, 읽는 주체인 모델은 열을
+    // 헤더 이름으로 식별한다 — 즉 위치가 밀려 깨지는 파서는 존재하지 않는다.
+    // 그래도 append를 권하는 이유는 하위호환뿐이다: 열 순서는 모델이 보는 표의 생김새라,
+    // 바꾸면 이 표를 인용한 기존 가이드·예시의 설명과 어긋난다.
     columns: ['category', 'genre', 'status', 'rating', 'watched_date', 'created', 'emotions', 'creator'],
   },
   {
