@@ -8,16 +8,16 @@ views:
       - file.name
       - relation
       - relation_type
-      - 소속
-      - 직책
-      - 친밀도
-      - 첫_만남
-      - 최근_접촉
+      - affiliation
+      - position
+      - closeness
+      - first_met
+      - last_contact
       - status
     sort:
       - property: relation
         direction: ASC
-      - property: 친밀도
+      - property: closeness
         direction: DESC
       - property: file.name
         direction: ASC
@@ -30,10 +30,10 @@ views:
     order:
       - file.name
       - relation_type
-      - 소속
-      - 직책
-      - 최근_접촉
+      - affiliation
+      - position
+      - last_contact
       - status
     sort:
-      - property: 최근_접촉
+      - property: last_contact
         direction: DESC

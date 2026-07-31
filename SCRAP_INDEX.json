@@ -1,6 +1,6 @@
 {
   "db": "SCRAP",
-  "generated_at": "2026-07-30T16:16:08.607Z",
+  "generated_at": "2026-07-31T02:20:44.627Z",
   "matched_dirs": [
     "Scrap_DB"
   ],
@@ -11,28 +11,28 @@
       "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
       "frontmatter": {
         "kind": "resource",
-        "출처": "https://example.com/document-storehouse",
-        "생성일": "2026-01-22",
-        "작성자": "문서곳간",
-        "분야": [
-          "인사이트",
-          "문화"
+        "source": "https://example.com/document-storehouse",
+        "first_created": "2026-01-22",
+        "author": "문서곳간",
+        "domain": [
+          "insight",
+          "culture"
         ],
-        "단계": [
-          "레퍼런스"
+        "stage": [
+          "reference"
         ],
-        "용도": [
-          "일상업무"
+        "purpose": [
+          "daily_work"
         ],
-        "태그": [
+        "tags": [
           "문서서식",
           "계약서양식",
           "품의서",
           "사무템플릿",
           "아카이브"
         ],
-        "별점": null,
-        "메모": "각종 사무용 문서(품의서·기안서·계약서 초안) 서식을 모아둔 아카이브. 업종별로 분류돼 있어 새 문서 만들 때 기본 틀로 참고하기 좋다."
+        "rating": null,
+        "memo": "각종 사무용 문서(품의서·기안서·계약서 초안) 서식을 모아둔 아카이브. 업종별로 분류돼 있어 새 문서 만들 때 기본 틀로 참고하기 좋다."
       }
     },
     {
@@ -40,29 +40,29 @@
       "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
       "frontmatter": {
         "kind": "webpage",
-        "출처": "https://example.com/slide-museum",
-        "생성일": "2025-09-05",
-        "작성자": null,
-        "분야": [
-          "디자인",
-          "인사이트"
+        "source": "https://example.com/slide-museum",
+        "first_created": "2025-09-05",
+        "author": null,
+        "domain": [
+          "design",
+          "insight"
         ],
-        "단계": [
-          "공부중"
+        "stage": [
+          "studying"
         ],
-        "용도": [
-          "디자인업무",
-          "일상업무"
+        "purpose": [
+          "design_work",
+          "daily_work"
         ],
-        "태그": [
+        "tags": [
           "발표자료",
           "슬라이드디자인",
           "PT레퍼런스",
           "정보전달",
           "레이아웃"
         ],
-        "별점": 3.5,
-        "메모": "실제 기업 발표자료 중 레이아웃이 깔끔한 사례를 모아 보여주는 사이트. 정보량이 많은 슬라이드를 어떻게 정리하는지 참고하기 좋다."
+        "rating": 3.5,
+        "memo": "실제 기업 발표자료 중 레이아웃이 깔끔한 사례를 모아 보여주는 사이트. 정보량이 많은 슬라이드를 어떻게 정리하는지 참고하기 좋다."
       }
     },
     {
@@ -70,29 +70,29 @@
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
       "frontmatter": {
         "kind": "tool",
-        "출처": "https://example.com/channel-log",
-        "생성일": "2026-03-11",
-        "작성자": "채널로그 팀",
-        "분야": [
-          "기술",
-          "인사이트"
+        "source": "https://example.com/channel-log",
+        "first_created": "2026-03-11",
+        "author": "채널로그 팀",
+        "domain": [
+          "technology",
+          "insight"
         ],
-        "단계": [
-          "개념인지"
+        "stage": [
+          "aware"
         ],
-        "용도": [
-          "일상업무",
-          "도구"
+        "purpose": [
+          "daily_work",
+          "tool"
         ],
-        "태그": [
+        "tags": [
           "마케팅리포트",
           "대시보드",
           "자동화",
           "캠페인분석",
           "데이터시각화"
         ],
-        "별점": 4,
-        "메모": "주간 캠페인 성과를 자동으로 취합해 리포트로 뽑아주는 도구. 여러 채널 지표를 한 화면에서 비교할 수 있어 보고서 작성 시간이 줄어든다."
+        "rating": 4,
+        "memo": "주간 캠페인 성과를 자동으로 취합해 리포트로 뽑아주는 도구. 여러 채널 지표를 한 화면에서 비교할 수 있어 보고서 작성 시간이 줄어든다."
       }
     },
     {
@@ -100,28 +100,28 @@
       "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
       "frontmatter": {
         "kind": "platform",
-        "출처": "https://example.com/chromatic-drawer",
-        "생성일": "2026-06-09",
-        "작성자": null,
-        "분야": [
-          "디자인",
-          "디자인-미학"
+        "source": "https://example.com/chromatic-drawer",
+        "first_created": "2026-06-09",
+        "author": null,
+        "domain": [
+          "design",
+          "design-aesthetics"
         ],
-        "단계": [
-          "레퍼런스"
+        "stage": [
+          "reference"
         ],
-        "용도": [
-          "디자인업무"
+        "purpose": [
+          "design_work"
         ],
-        "태그": [
+        "tags": [
           "컬러가이드",
           "브랜드컬러",
           "배색조합",
           "무드보드",
           "팔레트"
         ],
-        "별점": null,
-        "메모": "업종별 브랜드 컬러 조합 사례와 팔레트 코드를 제공하는 플랫폼. 무드보드 만들 때 배색 참고용으로 저장."
+        "rating": null,
+        "memo": "업종별 브랜드 컬러 조합 사례와 팔레트 코드를 제공하는 플랫폼. 무드보드 만들 때 배색 참고용으로 저장."
       }
     },
     {
@@ -129,28 +129,28 @@
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
       "frontmatter": {
         "kind": "article",
-        "출처": "https://example.com/schedule-habit",
-        "생성일": "2026-04-30",
-        "작성자": "타임루틴",
-        "분야": [
-          "인사이트",
-          "문화"
+        "source": "https://example.com/schedule-habit",
+        "first_created": "2026-04-30",
+        "author": "타임루틴",
+        "domain": [
+          "insight",
+          "culture"
         ],
-        "단계": [
-          "공부완료"
+        "stage": [
+          "studied"
         ],
-        "용도": [
-          "일상업무"
+        "purpose": [
+          "daily_work"
         ],
-        "태그": [
+        "tags": [
           "일정관리",
           "시간관리",
           "업무습관",
           "우선순위",
           "루틴"
         ],
-        "별점": 4.5,
-        "메모": "하루 업무를 우선순위 3단계로 나눠 배치하는 습관을 소개하는 글. 회의·집중업무·잡무를 시간대별로 구분하는 예시가 실용적이었다."
+        "rating": 4.5,
+        "memo": "하루 업무를 우선순위 3단계로 나눠 배치하는 습관을 소개하는 글. 회의·집중업무·잡무를 시간대별로 구분하는 예시가 실용적이었다."
       }
     }
   ]

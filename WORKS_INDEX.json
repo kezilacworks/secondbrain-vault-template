@@ -1,6 +1,6 @@
 {
   "db": "WORKS",
-  "generated_at": "2026-07-30T16:16:08.591Z",
+  "generated_at": "2026-07-31T02:20:44.607Z",
   "matched_dirs": [
     "W01_{workspace_name}"
   ],
@@ -13,7 +13,7 @@
         "kind": "project",
         "category": "{workspace_name}",
         "parent": "[[W01_{workspace_name}]]",
-        "레벨": 2,
+        "level": 2,
         "status": "active"
       }
     },
@@ -24,11 +24,11 @@
         "kind": "plan",
         "category": "{workspace_name}",
         "parent": "[[P01_{project_name}]]",
-        "레벨": 3,
+        "level": 3,
         "status": "done",
-        "기간_시작": null,
-        "기간_종료": null,
-        "작성완료": true
+        "start_date": null,
+        "end_date": null,
+        "write_done": true
       }
     },
     {
@@ -38,9 +38,9 @@
         "kind": "task",
         "category": "{workspace_name}",
         "parent": "[[P01_S01_{plan_name}]]",
-        "레벨": 4,
+        "level": 4,
         "status": "active",
-        "문서_역할": "정본",
+        "doc_role": "canonical",
         "created": null
       }
     },
@@ -51,11 +51,11 @@
         "kind": "task",
         "category": "{workspace_name}",
         "parent": "[[P01_S01_{plan_name}]]",
-        "레벨": 4,
+        "level": 4,
         "status": "planned",
-        "기간_시작": null,
-        "기간_종료": null,
-        "작성완료": false
+        "start_date": null,
+        "end_date": null,
+        "write_done": false
       }
     },
     {
@@ -65,11 +65,11 @@
         "kind": "task",
         "category": "{workspace_name}",
         "parent": "[[P01_S01_{plan_name}]]",
-        "레벨": 4,
+        "level": 4,
         "status": "planned",
-        "기간_시작": null,
-        "기간_종료": null,
-        "작성완료": false
+        "start_date": null,
+        "end_date": null,
+        "write_done": false
       }
     },
     {
@@ -79,11 +79,11 @@
         "kind": "task",
         "category": "{workspace_name}",
         "parent": "[[P01_S01_{plan_name}]]",
-        "레벨": 4,
+        "level": 4,
         "status": "planned",
-        "기간_시작": null,
-        "기간_종료": null,
-        "작성완료": false
+        "start_date": null,
+        "end_date": null,
+        "write_done": false
       }
     },
     {
@@ -93,11 +93,11 @@
         "kind": "task",
         "category": "{workspace_name}",
         "parent": "[[P01_S01_{plan_name}]]",
-        "레벨": 4,
+        "level": 4,
         "status": "planned",
-        "기간_시작": null,
-        "기간_종료": null,
-        "작성완료": false
+        "start_date": null,
+        "end_date": null,
+        "write_done": false
       }
     },
     {
@@ -107,11 +107,11 @@
         "kind": "task",
         "category": "{workspace_name}",
         "parent": "[[P01_S01_{plan_name}]]",
-        "레벨": 4,
+        "level": 4,
         "status": "planned",
-        "기간_시작": null,
-        "기간_종료": null,
-        "작성완료": false
+        "start_date": null,
+        "end_date": null,
+        "write_done": false
       }
     }
   ]

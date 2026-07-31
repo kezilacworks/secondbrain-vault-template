@@ -2,7 +2,7 @@
 kind: project
 category: "{workspace_name}"
 parent: "[[W01_{workspace_name}]]"
-레벨: 2
+level: 2
 status: active
 ---
 

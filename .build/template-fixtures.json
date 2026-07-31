@@ -1,28 +1,28 @@
 {
   "version": 1,
   "personal_value_fields": [
-    "특이사항",
-    "메모",
+    "remarks",
+    "memo",
     "summary",
-    "링크",
+    "link",
     "URL",
-    "출처",
-    "별점",
-    "감상일",
-    "마지막_시청일",
+    "source",
+    "rating",
+    "watched_date",
+    "last_watched",
     "scrap_date",
-    "생성일",
-    "작성일",
-    "기간_시작",
-    "기간_종료",
+    "first_created",
+    "created",
+    "start_date",
+    "end_date",
     "keywords",
-    "태그",
-    "작성자",
-    "창작자",
-    "출연진",
-    "현재진행",
-    "전체분량",
-    "주제"
+    "tags",
+    "author",
+    "creator",
+    "cast",
+    "progress",
+    "total_length",
+    "topic"
   ],
   "link_domain_allowlist": [
     "example.com",
@@ -31,125 +31,125 @@
   "approved": [
     {
       "path": "Contents_DB/적요의 파고.md",
-      "field": "창작자",
-      "value": "국다온"
+      "field": "creator",
+      "value": "Marin Ashby"
     },
     {
       "path": "Contents_DB/저녁의 온도.md",
-      "field": "창작자",
-      "value": "감서형"
+      "field": "creator",
+      "value": "Rowan Vale"
     },
     {
       "path": "Contents_DB/저녁의 온도.md",
-      "field": "출연진",
-      "value": "감서형"
+      "field": "cast",
+      "value": "Rowan Vale"
     },
     {
       "path": "Contents_DB/저녁의 온도.md",
-      "field": "별점",
+      "field": "rating",
       "value": 4
     },
     {
       "path": "Contents_DB/저녁의 온도.md",
-      "field": "감상일",
+      "field": "watched_date",
       "value": "2025-11-02"
     },
     {
       "path": "Contents_DB/저녁의 온도.md",
-      "field": "현재진행",
+      "field": "progress",
       "value": 312
     },
     {
       "path": "Contents_DB/저녁의 온도.md",
-      "field": "전체분량",
+      "field": "total_length",
       "value": 312
     },
     {
       "path": "Contents_DB/종달새 우체통.md",
-      "field": "창작자",
-      "value": "명하온"
+      "field": "creator",
+      "value": "Elin Prosper"
     },
     {
       "path": "Contents_DB/종달새 우체통.md",
-      "field": "출연진",
-      "value": "편지헌"
+      "field": "cast",
+      "value": "Juno Field"
     },
     {
       "path": "Contents_DB/종달새 우체통.md",
-      "field": "마지막_시청일",
+      "field": "last_watched",
       "value": "2026-06-18"
     },
     {
       "path": "Contents_DB/종달새 우체통.md",
-      "field": "현재진행",
+      "field": "progress",
       "value": 47
     },
     {
       "path": "Contents_DB/밤의 항해사.md",
-      "field": "창작자",
-      "value": "반유경"
+      "field": "creator",
+      "value": "Cassia Wren"
     },
     {
       "path": "Contents_DB/밤의 항해사.md",
-      "field": "출연진",
+      "field": "cast",
       "value": [
-        "어태린",
-        "황보서인"
+        "Isla Renn",
+        "Silas Bowman"
       ]
     },
     {
       "path": "Contents_DB/밤의 항해사.md",
-      "field": "별점",
+      "field": "rating",
       "value": 5
     },
     {
       "path": "Contents_DB/밤의 항해사.md",
-      "field": "감상일",
+      "field": "watched_date",
       "value": "2026-02-14"
     },
     {
       "path": "Contents_DB/밤의 항해사.md",
-      "field": "현재진행",
+      "field": "progress",
       "value": 16
     },
     {
       "path": "Contents_DB/밤의 항해사.md",
-      "field": "전체분량",
+      "field": "total_length",
       "value": 16
     },
     {
       "path": "Contents_DB/종이배의 계절.md",
-      "field": "창작자",
-      "value": "예도훈"
+      "field": "creator",
+      "value": "Theo Lark"
     },
     {
       "path": "Contents_DB/종이배의 계절.md",
-      "field": "마지막_시청일",
+      "field": "last_watched",
       "value": "2026-05-30"
     },
     {
       "path": "Contents_DB/종이배의 계절.md",
-      "field": "현재진행",
+      "field": "progress",
       "value": 9
     },
     {
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "field": "출처",
+      "field": "source",
       "value": "https://example.com/channel-log"
     },
     {
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "field": "생성일",
+      "field": "first_created",
       "value": "2026-03-11"
     },
     {
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "field": "작성자",
+      "field": "author",
       "value": "채널로그 팀"
     },
     {
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "field": "태그",
+      "field": "tags",
       "value": [
         "마케팅리포트",
         "대시보드",
@@ -160,32 +160,32 @@
     },
     {
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "field": "별점",
+      "field": "rating",
       "value": 4
     },
     {
       "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "field": "메모",
+      "field": "memo",
       "value": "주간 캠페인 성과를 자동으로 취합해 리포트로 뽑아주는 도구. 여러 채널 지표를 한 화면에서 비교할 수 있어 보고서 작성 시간이 줄어든다."
     },
     {
       "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
-      "field": "출처",
+      "field": "source",
       "value": "https://example.com/document-storehouse"
     },
     {
       "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
-      "field": "생성일",
+      "field": "first_created",
       "value": "2026-01-22"
     },
     {
       "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
-      "field": "작성자",
+      "field": "author",
       "value": "문서곳간"
     },
     {
       "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
-      "field": "태그",
+      "field": "tags",
       "value": [
         "문서서식",
         "계약서양식",
@@ -196,22 +196,22 @@
     },
     {
       "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
-      "field": "메모",
+      "field": "memo",
       "value": "각종 사무용 문서(품의서·기안서·계약서 초안) 서식을 모아둔 아카이브. 업종별로 분류돼 있어 새 문서 만들 때 기본 틀로 참고하기 좋다."
     },
     {
       "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
-      "field": "출처",
+      "field": "source",
       "value": "https://example.com/slide-museum"
     },
     {
       "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
-      "field": "생성일",
+      "field": "first_created",
       "value": "2025-09-05"
     },
     {
       "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
-      "field": "태그",
+      "field": "tags",
       "value": [
         "발표자료",
         "슬라이드디자인",
@@ -222,32 +222,32 @@
     },
     {
       "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
-      "field": "별점",
+      "field": "rating",
       "value": 3.5
     },
     {
       "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
-      "field": "메모",
+      "field": "memo",
       "value": "실제 기업 발표자료 중 레이아웃이 깔끔한 사례를 모아 보여주는 사이트. 정보량이 많은 슬라이드를 어떻게 정리하는지 참고하기 좋다."
     },
     {
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "field": "출처",
+      "field": "source",
       "value": "https://example.com/schedule-habit"
     },
     {
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "field": "생성일",
+      "field": "first_created",
       "value": "2026-04-30"
     },
     {
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "field": "작성자",
+      "field": "author",
       "value": "타임루틴"
     },
     {
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "field": "태그",
+      "field": "tags",
       "value": [
         "일정관리",
         "시간관리",
@@ -258,27 +258,27 @@
     },
     {
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "field": "별점",
+      "field": "rating",
       "value": 4.5
     },
     {
       "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "field": "메모",
+      "field": "memo",
       "value": "하루 업무를 우선순위 3단계로 나눠 배치하는 습관을 소개하는 글. 회의·집중업무·잡무를 시간대별로 구분하는 예시가 실용적이었다."
     },
     {
       "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
-      "field": "출처",
+      "field": "source",
       "value": "https://example.com/chromatic-drawer"
     },
     {
       "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
-      "field": "생성일",
+      "field": "first_created",
       "value": "2026-06-09"
     },
     {
       "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
-      "field": "태그",
+      "field": "tags",
       "value": [
         "컬러가이드",
         "브랜드컬러",
@@ -289,7 +289,7 @@
     },
     {
       "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
-      "field": "메모",
+      "field": "memo",
       "value": "업종별 브랜드 컬러 조합 사례와 팔레트 코드를 제공하는 플랫폼. 무드보드 만들 때 배색 참고용으로 저장."
     }
   ]

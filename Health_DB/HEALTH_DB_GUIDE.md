@@ -1,5 +1,5 @@
 ---
-type: 가이드
+type: guide
 ---
 
 # Health_DB 구조 가이드

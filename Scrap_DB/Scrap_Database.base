@@ -6,10 +6,10 @@ views:
         - file.inFolder("Scrap_DB")
     order:
       - file.name
-      - 용도
+      - purpose
       - kind
-      - 작성자
-      - 분야
-      - 생성일
-      - 단계
-      - 메모
+      - author
+      - domain
+      - first_created
+      - stage
+      - memo

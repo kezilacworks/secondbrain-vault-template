@@ -1,6 +1,6 @@
 {
   "db": "CONTENTS",
-  "generated_at": "2026-07-30T16:16:08.602Z",
+  "generated_at": "2026-07-31T02:20:44.623Z",
   "matched_dirs": [
     "Contents_DB"
   ],
@@ -12,29 +12,29 @@
       "frontmatter": {
         "category": "series",
         "genre": [
-          "스릴러",
-          "액션"
+          "thriller",
+          "action"
         ],
-        "감정": [
-          "긴장감",
-          "다짐"
+        "emotions": [
+          "tension",
+          "resolve"
         ],
-        "창작자": "반유경",
-        "출연진": [
-          "어태린",
-          "황보서인"
+        "creator": "Cassia Wren",
+        "cast": [
+          "Isla Renn",
+          "Silas Bowman"
         ],
-        "별점": 5,
+        "rating": 5,
         "status": "done",
-        "감상일": "2026-02-14",
-        "마지막_시청일": null,
-        "현재진행": 16,
-        "전체분량": 16,
-        "시즌_권": "시즌1",
-        "플랫폼": null,
-        "연재요일": null,
-        "링크": null,
-        "특이사항": null
+        "watched_date": "2026-02-14",
+        "last_watched": null,
+        "progress": 16,
+        "total_length": 16,
+        "season_volume": "시즌1",
+        "platform": null,
+        "release_day": null,
+        "link": null,
+        "remarks": null
       }
     },
     {
@@ -42,24 +42,24 @@
       "path": "Contents_DB/저녁의 온도.md",
       "frontmatter": {
         "category": "book",
-        "genre": "일상",
-        "감정": [
-          "느긋함",
-          "애틋함"
+        "genre": "slice of life",
+        "emotions": [
+          "ease",
+          "tenderness"
         ],
-        "창작자": "감서형",
-        "출연진": "감서형",
-        "별점": 4,
+        "creator": "Rowan Vale",
+        "cast": "Rowan Vale",
+        "rating": 4,
         "status": "done",
-        "감상일": "2025-11-02",
-        "마지막_시청일": null,
-        "현재진행": 312,
-        "전체분량": 312,
-        "시즌_권": null,
-        "플랫폼": null,
-        "연재요일": null,
-        "링크": null,
-        "특이사항": null
+        "watched_date": "2025-11-02",
+        "last_watched": null,
+        "progress": 312,
+        "total_length": 312,
+        "season_volume": null,
+        "platform": null,
+        "release_day": null,
+        "link": null,
+        "remarks": null
       }
     },
     {
@@ -67,21 +67,21 @@
       "path": "Contents_DB/적요의 파고.md",
       "frontmatter": {
         "category": "film",
-        "genre": "스릴러",
-        "감정": null,
-        "창작자": "국다온",
-        "출연진": null,
-        "별점": null,
+        "genre": "thriller",
+        "emotions": null,
+        "creator": "Marin Ashby",
+        "cast": null,
+        "rating": null,
         "status": "planned",
-        "감상일": null,
-        "마지막_시청일": null,
-        "현재진행": null,
-        "전체분량": null,
-        "시즌_권": null,
-        "플랫폼": null,
-        "연재요일": null,
-        "링크": null,
-        "특이사항": null
+        "watched_date": null,
+        "last_watched": null,
+        "progress": null,
+        "total_length": null,
+        "season_volume": null,
+        "platform": null,
+        "release_day": null,
+        "link": null,
+        "remarks": null
       }
     },
     {
@@ -90,26 +90,26 @@
       "frontmatter": {
         "category": "comic",
         "genre": [
-          "판타지",
-          "청춘"
+          "fantasy",
+          "coming of age"
         ],
-        "감정": [
-          "설렘",
-          "흥미로움"
+        "emotions": [
+          "flutter",
+          "intrigue"
         ],
-        "창작자": "명하온",
-        "출연진": "편지헌",
-        "별점": null,
+        "creator": "Elin Prosper",
+        "cast": "Juno Field",
+        "rating": null,
         "status": "watching",
-        "감상일": null,
-        "마지막_시청일": "2026-06-18",
-        "현재진행": 47,
-        "전체분량": null,
-        "시즌_권": null,
-        "플랫폼": null,
-        "연재요일": "화요일",
-        "링크": null,
-        "특이사항": null
+        "watched_date": null,
+        "last_watched": "2026-06-18",
+        "progress": 47,
+        "total_length": null,
+        "season_volume": null,
+        "platform": null,
+        "release_day": "화요일",
+        "link": null,
+        "remarks": null
       }
     },
     {
@@ -118,26 +118,26 @@
       "frontmatter": {
         "category": "animation",
         "genre": [
-          "판타지",
-          "힐링 일상"
+          "fantasy",
+          "healing slice of life"
         ],
-        "감정": [
-          "흥미로움",
-          "보통"
+        "emotions": [
+          "intrigue",
+          "neutral"
         ],
-        "창작자": "예도훈",
-        "출연진": null,
-        "별점": null,
+        "creator": "Theo Lark",
+        "cast": null,
+        "rating": null,
         "status": "watching",
-        "감상일": null,
-        "마지막_시청일": "2026-05-30",
-        "현재진행": 9,
-        "전체분량": null,
-        "시즌_권": null,
-        "플랫폼": null,
-        "연재요일": "목요일",
-        "링크": null,
-        "특이사항": null
+        "watched_date": null,
+        "last_watched": "2026-05-30",
+        "progress": 9,
+        "total_length": null,
+        "season_volume": null,
+        "platform": null,
+        "release_day": "목요일",
+        "link": null,
+        "remarks": null
       }
     }
   ]

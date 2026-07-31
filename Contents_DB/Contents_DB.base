@@ -1,8 +1,8 @@
 formulas:
-  진척도: if(전체분량 > 0, (현재진행 / 전체분량 * 100).toFixed(1) + "%", "")
+  progress_pct: if(total_length > 0, (progress / total_length * 100).toFixed(1) + "%", "")
 properties:
-  formula.진척도:
-    displayName: 진척도(%)
+  formula.progress_pct:
+    displayName: Progress (%)
 views:
   - type: table
     name: 전체
@@ -13,29 +13,29 @@ views:
       - file.name
       - category
       - genre
-      - 별점
+      - rating
       - status
-      - 감상일
-      - formula.진척도
-      - 현재진행
-      - 전체분량
-      - 시즌_권
-      - 창작자
-      - 출연진
-      - 연재요일
-      - 감정
+      - watched_date
+      - formula.progress_pct
+      - progress
+      - total_length
+      - season_volume
+      - creator
+      - cast
+      - release_day
+      - emotions
     sort:
       - property: file.name
         direction: ASC
       - property: genre
         direction: ASC
-      - property: 연재요일
+      - property: release_day
         direction: ASC
-      - property: 시즌_권
+      - property: season_volume
         direction: DESC
-      - property: 감상일
+      - property: watched_date
         direction: DESC
-      - property: 별점
+      - property: rating
         direction: DESC
     columnSize:
       note.genre: 371

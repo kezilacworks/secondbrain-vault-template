@@ -6,30 +6,30 @@ views:
         - file.inFolder("Health_DB/Health_데일리")
     order:
       - file.name
-      - 날짜
-      - 컨디션
-      - 체중
-      - 수면시간
-      - 물
+      - date
+      - condition
+      - weight
+      - sleep_hours
+      - water
     sort:
-      - property: 날짜
+      - property: date
         direction: DESC
   - type: table
     name: 인바디 추적
     filters:
       and:
         - file.inFolder("Health_DB/Health_데일리")
-        - 체중 is_not_empty
+        - weight is_not_empty
     order:
       - file.name
-      - 날짜
-      - 체중
-      - 골격근량
-      - 체지방률
+      - date
+      - weight
+      - muscle_mass
+      - body_fat_pct
       - BMI
-      - 인바디점수
+      - inbody_score
     sort:
-      - property: 날짜
+      - property: date
         direction: DESC
   - type: table
     name: 건강지식
@@ -38,11 +38,11 @@ views:
         - file.inFolder("Health_DB/Health_지식")
     order:
       - file.name
-      - 주제
+      - topic
       - status
-      - 갱신일
+      - updated
     sort:
-      - property: 갱신일
+      - property: updated
         direction: DESC
       - property: file.name
         direction: ASC
@@ -53,12 +53,12 @@ views:
         - file.inFolder("Health_DB/Health_깨달음")
     order:
       - file.name
-      - 주제
+      - topic
       - status
-      - 게시플랫폼
-      - 게시일
+      - publish_platform
+      - published_date
     sort:
-      - property: 게시일
+      - property: published_date
         direction: DESC
       - property: status
         direction: ASC

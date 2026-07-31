@@ -59,10 +59,10 @@ const DEFAULT_VAULT_ROOT = path.resolve(SCRIPT_DIR, '..', '..');
 // 필드 "이름"만 나열 — 실제 개인 값이 아니므로 공개해도 안전.
 // ---------------------------------------------------------------------------
 const DEFAULT_PERSONAL_VALUE_FIELDS = [
-  '특이사항', '메모', 'summary', '링크', 'URL', '출처',
-  '별점', '감상일', '마지막_시청일', 'keywords',
-  '작성자', '출연진', 'title',
-  '주제', // MEDIUM-D: Health_지식 노트의 자유 서술 주제명 — enum이 아니라 자유 텍스트
+  'remarks', 'memo', 'summary', 'link', 'URL', 'source',
+  'rating', 'watched_date', 'last_watched', 'keywords',
+  'author', 'cast', 'creator', 'title',
+  'topic', // MEDIUM-D: Health_지식 노트의 자유 서술 주제명 — enum이 아니라 자유 텍스트
 ];
 
 // ---------------------------------------------------------------------------
@@ -71,6 +71,9 @@ const DEFAULT_PERSONAL_VALUE_FIELDS = [
 const JOB_NEUTRALITY_DENYLIST = ['개발연구', '바이브코딩', 'W03_개발연구'];
 
 // 허브 파일 자기참조 예외: 파일명 자체가 denylist 용어인 분류 허브 노트.
+// 2026-07-31 EN 전환: 값-허브 개명으로 이 허브는 vibe_coding.md가 되어 자기참조가 사라졌다
+// (경로·본문 어디에도 denylist 용어가 없어 위반 자체가 안 난다). 항목을 지우지 않고 남기는 건
+// KO 트리·되돌림 트리를 --root로 검사할 때 여전히 필요하기 때문이다 — 남겨도 오탐은 없다.
 const DENYLIST_SELF_EXEMPT = [
   { path: 'Scrap_DB/Scrap_용도/바이브코딩.md', term: '바이브코딩' },
 ];
@@ -99,24 +102,26 @@ const WORKSPACE_DIR_RE = /^W\d{2}_/;
 // 즉시 실패(경고 아님) — 새 필드명을 만들어 개인값을 숨기는 우회를 차단한다. 스키마가 실제로
 // 확장되면 이 배열도 같은 PR에서 함께 늘려야 한다.
 //
-// MEDIUM-D: enum 값이 고정된 필드(category·kind·genre·감정·분야·단계·용도·레벨·문서_역할·status)와
-// 위키링크 패턴 필드(parent)는 여기서 제외하고 아래 ENUM_FIELDS/PATTERN_FIELDS로 옮겼다 — "알려진
-// 필드니까 무조건 통과"라는 프리패스가, enum 필드에 자유 서술 개인값을 숨기는 통로였다(리뷰어 재현:
-// status 필드에 실제 투병 이력을 서술한 자유 텍스트를 넣은 사례가 이전에는 무검증 통과). '주제'는
-// 자유 텍스트라 personal_value_fields로 이동.
+// MEDIUM-D: enum 값이 고정된 필드(category·kind·genre·emotions·domain·stage·purpose·level·
+// doc_role·status)와 위키링크 패턴 필드(parent)는 여기서 제외하고 아래 ENUM_FIELDS/PATTERN_FIELDS로
+// 옮겼다 — "알려진 필드니까 무조건 통과"라는 프리패스가, enum 필드에 자유 서술 개인값을 숨기는
+// 통로였다(리뷰어 재현: status 필드에 실제 투병 이력을 서술한 자유 텍스트를 넣은 사례가 이전에는
+// 무검증 통과). topic은 자유 텍스트라 personal_value_fields로 이동.
 // (주: 이 파일 자체가 공개 템플릿 repo에 실리고 게이트2가 .build까지 스캔하므로, 아래 셀프테스트
 // 픽스처에는 실제 민감 키워드 원문을 절대 쓰지 않는다 — 이전 라운드에도 한 번 겪은 자기참조 오탐 함정.)
 //
-// 2026-07-31 EN 스키마 전환: 계약 키만 EN명으로 옮겼다(작성일→created). 비계약 한국어 필드명은
-// 그대로다 — 계약 확장 결정 전까지 건드리지 않는 것이 현 방침이다.
+// 2026-07-31 EN 스키마 2차 전환(트랙 A-4 "전부 영어화"): 계약 키뿐 아니라 자유 필드도 전부 EN이다.
+// 이름의 정본은 계획 20260731의 확장 명명표이고, 변환기 쪽 짝은 convert-vault-en.mjs의
+// COMMON_KEYS·FAMILY_KEYS다. 한쪽만 고치면 vault 실물과 이 게이트가 어긋난다.
 const KNOWN_FRONTMATTER_FIELDS = new Set([
-  'BMI', 'type', 'created',
-  '감상일', '갱신일', '골격근량', '기간_시작', '기간_종료', '기초대사량', '날짜',
-  '링크', '마지막_시청일', '메모', '물', '별점',
-  '생성일', '수면시간', '시즌_권', '연재요일',
-  '인바디점수', '작성완료', '작성자', '전체분량',
-  '창작자', '체중', '체지방량', '체지방률', '총_프로젝트', '출연진', '출처',
-  '컨디션', '태그', '특이사항', '플랫폼', '현재진행',
+  'BMI', 'type', 'created', 'updated', 'first_created',
+  // Contents
+  'platform', 'release_day', 'season_volume', 'total_length', 'progress',
+  // Works
+  'start_date', 'end_date', 'write_done', 'superseded', 'total_projects', 'total_tasks', 'total_plans',
+  // Health 계측 필드군
+  'date', 'weight', 'muscle_mass', 'body_fat_pct', 'body_fat_mass', 'bmr',
+  'inbody_score', 'sleep_hours', 'water',
 ]);
 
 // MEDIUM-D: enum 필드 — 값 집합은 worker/src/taxonomy-en.ts의 계약 enum(CONTENTS_CATEGORY_ENUM·
@@ -130,8 +135,10 @@ const KNOWN_FRONTMATTER_FIELDS = new Set([
 //    두 목록도 kind 하나로 합쳤고, 값 집합은 DB별 kind 어휘의 합집합이다(place는 Health·Travel
 //    양쪽에 있어 한 번만 등장). 여기서 DB를 구분하지 않는 이유는 status와 같다 — 이 게이트의 목적은
 //    "enum 필드에 자유 서술을 숨기는 것"의 차단이지 DB별 정합성 판정이 아니다(그건 워커 L1 몫).
-//  - genre는 EN 계약에 대응 어휘가 없어(taxonomy-en에 GENRE_ENUM 부재, 변환기도 genre 값은
-//    매핑하지 않고 통과시킨다) 키만 EN이고 값은 한국어 그대로다.
+//  - genre는 두 계약이 같은 키를 다른 뜻으로 쓴다: Contents=작품 장르(열린 표현형), Travel=장소
+//    성격(닫힌 4+1값, TRAVEL_GENRE_VALUES). 이 게이트는 필드명 전역 검사라 둘의 합집합을 싣는다.
+//    Contents 장르 값은 원래 "사용자 언어 영역"이라 계약이 강제하지 않지만, **템플릿은 영어
+//    사용자에게 주는 씨드**라 2차 패스에서 허브 노트와 함께 자연 영어로 갈았다(W2).
 // `{...}` 형태 값은 템플릿 플레이스홀더 관례이므로 모든 enum 필드에서 통과시킨다.
 const PLACEHOLDER_VALUE_RE = /^\{.+\}$/;
 
@@ -141,7 +148,7 @@ const ENUM_FIELDS = {
     // WORKS (taxonomy-en WORKS_KIND_ENUM)
     'project', 'plan', 'task', 'action_plan', 'workspace', 'person', 'posting', 'wikipage',
     // HEALTH / TRAVEL (HEALTH_KIND_ENUM · TRAVEL_KIND_ENUM — place 공유)
-    'daily', 'knowledge', 'insight', 'place', 'trip', 'wish',
+    'daily', 'knowledge', 'insight', 'place', 'trip', 'wish', 'prep_base', 'travel_knowhow',
     // SCRAP (전환 전부터 EN)
     'article', 'tool', 'webpage', 'webtoon', 'resource', 'platform', 'instagram',
     // KNOWHOW. abbreviation_dictionary는 루트 KNOWHOW_약어.md 전용 — 계약 밖(resolveContract가
@@ -149,32 +156,43 @@ const ENUM_FIELDS = {
     'shortcut', 'config', 'technique', 'troubleshooting', 'toolhub', 'abbreviation_dictionary',
   ],
   genre: [
-    '힐링 일상', '블랙 코미디', '러브 코미디', '로맨스', '판타지', '드라마', '청춘', '학원',
-    '시대극', '액션', '피카레스크', '재난', '일상', '코미디', '공포', 'SF', '스릴러', '모험',
+    // Contents — 작품 장르(허브 Contents_장르/와 1:1). SF는 영어권에서도 통용돼 원형 유지.
+    'healing slice of life', 'black comedy', 'romantic comedy', 'romance', 'fantasy', 'drama',
+    'coming of age', 'school', 'period drama', 'action', 'picaresque', 'disaster',
+    'slice of life', 'comedy', 'horror', 'SF', 'thriller', 'adventure',
+    // Travel — 장소 성격(vault-value-maps TRAVEL_GENRE_VALUES). 같은 키, 다른 값 집합.
+    'restaurant', 'cafe', 'attraction', 'shopping', 'activity',
   ],
-  감정: [
-    '미칠것같음', '기쁨', '흥미로움', '경외', '보통', '멍함', '분노', '애틋함', '회의감',
-    '다짐', '행복', '황당함', '고민', '탈진', '우울', '설렘', '느긋함', '긴장감',
+  emotions: [
+    'overwhelmed', 'joy', 'intrigue', 'awe', 'neutral', 'daze', 'anger', 'tenderness', 'skepticism',
+    'resolve', 'happiness', 'absurdity', 'conflicted', 'burnout', 'gloom', 'flutter', 'ease', 'tension',
   ],
-  분야: ['디자인-미학', '문화', '디자인', '인사이트', '기술', '스포츠'],
-  단계: ['개념인지', '공부완료', '공부중', '레퍼런스'],
-  용도: ['일상업무', '글쓰기업무', '바이브코딩', '도구', '영상업무', '디자인업무'],
-  레벨: [1, 2, 3, 4],
-  문서_역할: ['정본'],
+  // Scrap 7+2 ∪ Knowhow 4 — 같은 domain 키인데 DB마다 값 집합이 다르다(vault-value-maps의
+  // SCRAP_DOMAIN_VALUES / KNOWHOW_DOMAIN_VALUES). 필드명 전역 검사라 합집합을 싣는다.
+  // design-aesthetics는 `{domain}-{theme}` 테마 허브 표기의 실측 사례다(하이픈 보존).
+  domain: [
+    'design', 'marketing', 'development', 'education', 'technology', 'culture', 'insight',
+    'sports', 'design-aesthetics',
+    'design_video', 'it_dev', 'system_env', 'daily_life',
+  ],
+  stage: ['aware', 'studying', 'studied', 'reference'],
+  purpose: ['design_work', 'vibe_coding', 'video_work', 'writing_work', 'daily_work', 'tool'],
+  level: [1, 2, 3, 4],
+  doc_role: ['canonical', 'record'],
+  condition: ['good', 'fair', 'poor'],
   // 정본 = worker/src/contracts.ts EN_STATUS_VOCAB의 DB별 어휘 전체 합집합. 필드가 DB마다 다른
   // 의미로 재사용되므로 DB 구분 없이 전역 합집합으로 검사한다(narrative 텍스트 차단이 목적이라
   // 이 정도 느슨함은 무해). EN_STATUS_VOCAB이 바뀌면 이 배열도 같은 PR에서 함께 고쳐야 한다.
-  //   WORKS    active·done·hold·planned
-  //   PEOPLE   active·done·hold
-  //   CONTENTS done·watching·planned
-  //   TRAVEL   planned·visited·want_revisit·wishlist·done
-  //   HEALTH   published·active·done·learning
-  // 주의: 전환 전 목록에 있던 Health_깨달음의 작성중·검토중은 EN_STATUS_VOCAB.HEALTH에 대응값이
-  // 없어 빠졌다(템플릿에 실제 사용 노트도 없다). 깨달음 초안/검토 상태를 쓰려면 신조어를 여기
-  // 임의로 넣지 말고 EN_STATUS_VOCAB부터 확장해야 한다.
+  //   WORKS    active·done·hold·planned·ready·following_up
+  //   PEOPLE   active·dormant·closed
+  //   CONTENTS done·watching·planned·hold
+  //   TRAVEL   planned·visited·want_revisit·wishlist·done·cancelled
+  //   HEALTH   published·active·done·learning·draft·in_review·wishlist
   status: [
-    'active', 'done', 'hold', 'planned', 'watching',
-    'visited', 'want_revisit', 'wishlist', 'published', 'learning',
+    'active', 'done', 'hold', 'planned', 'ready', 'following_up',
+    'dormant', 'closed', 'watching',
+    'visited', 'want_revisit', 'wishlist', 'cancelled',
+    'published', 'learning', 'draft', 'in_review',
   ],
 };
 
@@ -743,13 +761,16 @@ function printReport(result, verbose) {
 // ---------------------------------------------------------------------------
 function buildSelfTestManifest() {
   return finalizeManifest({
-    personal_value_fields: ['메모', '특이사항', '별점', '출처', 'URL', '감상일'],
+    // EN 스키마 필드명 + NFD 회귀 케이스용 한국어 키 1개('메모'). 후자는 실물 스키마에는 더 이상
+    // 없지만, foldKey의 NFC 정규화가 죽으면 조용히 통과되는 우회 경로라 커버리지를 남긴다
+    // (셀프테스트는 격리된 자체 매니페스트를 쓰므로 실물과 어긋나도 무해하다).
+    personal_value_fields: ['memo', 'remarks', 'rating', 'source', 'URL', 'watched_date', '메모'],
     link_domain_allowlist: ['example.com', 'example.org'],
     approved: [
-      { path: 'Contents_DB/승인샘플.md', field: '메모', value: '가공된 승인값' },
-      { path: 'Contents_DB/따옴표샘플.md', field: '별점', value: 5 },
-      { path: 'Scrap_DB/허용도메인.md', field: '출처', value: 'https://www.example.com/post/1' },
-      { path: 'Contents_DB/승인날짜.md', field: '감상일', value: '2025-11-02' },
+      { path: 'Contents_DB/승인샘플.md', field: 'memo', value: '가공된 승인값' },
+      { path: 'Contents_DB/따옴표샘플.md', field: 'rating', value: 5 },
+      { path: 'Scrap_DB/허용도메인.md', field: 'source', value: 'https://www.example.com/post/1' },
+      { path: 'Contents_DB/승인날짜.md', field: 'watched_date', value: '2025-11-02' },
     ],
   }, true);
 }
@@ -759,25 +780,25 @@ function buildSelfTestFiles() {
   return [
     {
       relPath: 'Contents_DB/미승인.md',
-      raw: '---\n메모: "승인되지 않은 개인 메모"\n---\n본문\n',
+      raw: '---\nmemo: "승인되지 않은 개인 메모"\n---\n본문\n',
       expect: true,
       label: '미승인 개인값 필드 (기본 케이스)',
     },
     {
       relPath: 'Contents_DB/승인샘플.md',
-      raw: '---\n메모: "가공된 승인값"\n---\n본문\n',
+      raw: '---\nmemo: "가공된 승인값"\n---\n본문\n',
       expect: false,
       label: '승인 목록과 정확 일치 (정상 케이스)',
     },
     {
       relPath: 'Contents_DB/따옴표샘플.md',
-      raw: '---\n별점: 5\n---\n본문\n',
+      raw: '---\nrating: 5\n---\n본문\n',
       expect: false,
       label: '숫자 스칼라 — 따옴표 없음도 정상 일치 (정상 케이스)',
     },
     {
       relPath: 'Contents_DB/중첩우회.md',
-      raw: '---\n메타:\n  메모: "중첩으로 숨긴 개인 메모"\n---\n본문\n',
+      raw: '---\nmeta:\n  memo: "중첩으로 숨긴 개인 메모"\n---\n본문\n',
       expect: true,
       label: '중첩 YAML 우회 시도 (새 부모 키 아래 개인값 필드 은닉)',
     },
@@ -785,13 +806,13 @@ function buildSelfTestFiles() {
       relPath: 'Contents_DB/NFD우회.md',
       raw: `---\n${nfdMemo}: "분해형 키로 숨긴 개인 메모"\n---\n본문\n`,
       expect: true,
-      label: 'NFD 분해형 필드명 우회 시도',
+      label: 'NFD 분해형 필드명 우회 시도 (한국어 키 폴딩 회귀 방지 — 매니페스트에 짝 등록)',
     },
     {
       // 실제 유출 사고 도메인 문자열은 쓰지 않는다 — 이 파일은 공개 템플릿 repo에 실리므로,
       // 셀프테스트 픽스처가 우연히 비공개 게이트2의 민감 키워드와 겹치면 매 실행마다 오탐이 난다.
       relPath: 'Scrap_DB/불허도메인.md',
-      raw: '---\n출처: "https://disallowed-example.test/comic/1"\n---\n본문\n',
+      raw: '---\nsource: "https://disallowed-example.test/comic/1"\n---\n본문\n',
       expect: true,
       label: 'frontmatter의 미승인 URL 도메인',
     },
@@ -803,7 +824,7 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'Scrap_DB/허용도메인.md',
-      raw: "---\n출처: 'https://www.example.com/post/1'\n---\n본문\n",
+      raw: "---\nsource: 'https://www.example.com/post/1'\n---\n본문\n",
       expect: false,
       label: '허용 도메인 서브도메인 + 따옴표 스타일 변형 (정상 케이스)',
     },
@@ -821,7 +842,7 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'Scrap_DB/Scrap_용도/바이브코딩.md',
-      raw: '---\ntype: 용도\n---\n본문\n',
+      raw: '---\ntype: purpose\n---\n본문\n',
       expect: false,
       label: '분류 허브 자기참조 예외 (정상 케이스)',
     },
@@ -833,33 +854,33 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'Contents_DB/깨진프론트매터.md',
-      raw: '---\n메모: "닫히지 않은 따옴표\n---\n본문\n',
+      raw: '---\nmemo: "닫히지 않은 따옴표\n---\n본문\n',
       expect: true,
       label: 'frontmatter YAML 파싱 자체를 깨뜨려 규칙1을 우회하려는 시도 (fail-closed 확인)',
     },
     // --- CRITICAL-2: Date 인스턴스 오판 회귀 방지 ---
     {
       relPath: 'Contents_DB/미승인날짜.md',
-      raw: '---\n감상일: 2026-01-15\n---\n본문\n',
+      raw: '---\nwatched_date: 2026-01-15\n---\n본문\n',
       expect: true,
       label: '미승인 날짜값 (따옴표 없는 YAML 날짜 → Date 인스턴스, isEmptyValue 오판 회귀 방지)',
     },
     {
       relPath: 'Contents_DB/승인날짜.md',
-      raw: '---\n감상일: 2025-11-02\n---\n본문\n',
+      raw: '---\nwatched_date: 2025-11-02\n---\n본문\n',
       expect: false,
       label: '승인된 날짜값 (Date 인스턴스가 문자열 승인 목록과 정상 매칭, 정상 케이스)',
     },
     // --- CRITICAL-4: closed-world 미지 필드 (신규 필드명으로 개인값 은닉) ---
     {
       relPath: 'Contents_DB/신규필드비공란.md',
-      raw: '---\n비고: "새 필드명으로 숨긴 개인 정보"\n---\n본문\n',
+      raw: '---\nextra_field: "새 필드명으로 숨긴 개인 정보"\n---\n본문\n',
       expect: true,
       label: 'closed-world 위반 — personal_value_fields에도 알려진 스키마에도 없는 신규 필드가 비공란',
     },
     {
       relPath: 'Contents_DB/신규필드공란.md',
-      raw: '---\n비고:\ncategory: film\n---\n본문\n',
+      raw: '---\nextra_field:\ncategory: film\n---\n본문\n',
       expect: false,
       label: '신규 필드지만 값이 공란 — 경고만(비차단), 정상 케이스',
     },
@@ -873,13 +894,13 @@ function buildSelfTestFiles() {
     // --- MEDIUM-D: enum 고정 필드에 자유 서술을 숨기는 시도 (리뷰어 재현 re3-1785167027/known 그대로) ---
     {
       relPath: 'Contents_DB/상태우회.md',
-      raw: '---\ncategory: film\ngenre: 스릴러\nstatus: "2024년 투병 중 시청. 담당 주치의 소견 참고."\n---\n본문\n',
+      raw: '---\ncategory: film\ngenre: thriller\nstatus: "2024년 투병 중 시청. 담당 주치의 소견 참고."\n---\n본문\n',
       expect: true,
       label: 'enum 고정 필드(status)에 자유 서술 개인 정보를 숨기는 시도 — 이전에는 "알려진 필드"라 무검증 통과',
     },
     {
       relPath: 'Contents_DB/상태정상.md',
-      raw: '---\ncategory: film\ngenre: 스릴러\nstatus: planned\n---\n본문\n',
+      raw: '---\ncategory: film\ngenre: thriller\nstatus: planned\n---\n본문\n',
       expect: false,
       label: 'status 필드에 정상 enum 값 — 정상 케이스',
     },
@@ -911,7 +932,7 @@ function buildSelfTestFiles() {
     },
     {
       relPath: 'Health_DB/Health_지식/주제미승인.md',
-      raw: '---\n주제: "2024년 통원치료 중 알게 된 지식"\n---\n본문\n',
+      raw: '---\ntopic: "2024년 통원치료 중 알게 된 지식"\n---\n본문\n',
       expect: true,
       label: 'MEDIUM-D — 주제는 자유텍스트라 personal_value_fields로 이동, 미승인 값은 검출돼야 함',
     },
@@ -962,7 +983,7 @@ function runDotBuildRealDiskTest() {
     //  코드를 콘텐츠로 오인하지 않기 위한 기존 설계이므로 여기서는 일부러 건드리지 않는다.)
     fs.writeFileSync(
       path.join(tmpRoot, '.build', 'hidden-leak.md'),
-      '---\n메모: "빌드 폴더에 숨긴 개인 메모"\n---\n본문\n',
+      '---\nmemo: "빌드 폴더에 숨긴 개인 메모"\n---\n본문\n',
     );
     // (b) package-lock.json — npm 레지스트리 URL 정상 포함, 여전히 제외돼야 한다.
     fs.writeFileSync(
@@ -973,12 +994,12 @@ function runDotBuildRealDiskTest() {
     // 포함하고 있어(원래 build-index.mjs 용도) 잘못 짜면 다시 스킵되는 회귀가 있었다(자체 발견·수정).
     fs.writeFileSync(
       path.join(tmpRoot, '.github', 'hidden-leak.md'),
-      '---\n메모: ".github 폴더에 숨긴 개인 메모"\n---\n본문\n',
+      '---\nmemo: ".github 폴더에 숨긴 개인 메모"\n---\n본문\n',
     );
     // (c) .git 안에 숨긴 누출 — SCANNED_DOT_DIRS에 없으니 여전히 스킵돼야 한다.
     fs.writeFileSync(
       path.join(tmpRoot, '.git', 'hidden-in-git.md'),
-      '---\n메모: ".git 안에 숨긴 개인 메모(이건 잡히면 안 됨)"\n---\n본문\n',
+      '---\nmemo: ".git 안에 숨긴 개인 메모(이건 잡히면 안 됨)"\n---\n본문\n',
     );
     // (d) 대조군: 평소대로 스캔되는 일반 파일.
     fs.writeFileSync(
