@@ -1,22 +1,22 @@
 ---
-category: animation
+category: comic
 genre: 
   - fantasy
-  - healing slice of life
+  - coming of age
 emotions: 
+  - flutter
   - intrigue
-  - neutral
-creator: Theo Lark
-cast: 
+creator: Elin Prosper
+cast: Juno Field
 rating: 
 status: watching
 watched_date: 
-last_watched: 2026-05-30
-progress: 9
+last_watched: 2026-06-18
+progress: 47
 total_length: 
 season_volume: 
 platform: 
-release_day: 목요일
+release_day: Tuesday
 link: 
 remarks: 
 ---

@@ -8,8 +8,8 @@ status: learning
 
 # {topic_name}
 
-## 핵심 내용
+## Key points
 
-## 출처/참고
+## Sources / references
 
-## 관련 지식
+## Related knowledge

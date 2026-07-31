@@ -38,8 +38,8 @@ type: guide
 ├── Health_주제/                  # 주제 허브 (wikilink)
 │   └── {topic_name}.md
 └── Health_템플릿/                # 템플릿 (원본 보존)
-    ├── 데일리_템플릿.md
-    └── 지식_템플릿.md
+    ├── Daily_template.md
+    └── Knowledge_template.md
 ```
 
 ## 상태값

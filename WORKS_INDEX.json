@@ -1,6 +1,6 @@
 {
   "db": "WORKS",
-  "generated_at": "2026-07-31T02:27:32.000Z",
+  "generated_at": "2026-07-31T02:33:47.530Z",
   "matched_dirs": [
     "W01_{workspace_name}"
   ],
@@ -32,8 +32,8 @@
       }
     },
     {
-      "title": "P01_S01_T00_현재판정",
-      "path": "W01_{workspace_name}/P01_{project_name}/P01_S01_{plan_name}/P01_S01_T00_현재판정.md",
+      "title": "P01_S01_T00_current_rulings",
+      "path": "W01_{workspace_name}/P01_{project_name}/P01_S01_{plan_name}/P01_S01_T00_current_rulings.md",
       "frontmatter": {
         "kind": "task",
         "category": "{workspace_name}",

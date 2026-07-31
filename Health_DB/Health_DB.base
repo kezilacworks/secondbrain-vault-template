@@ -1,6 +1,6 @@
 views:
   - type: table
-    name: 데일리 전체
+    name: All daily
     filters:
       and:
         - file.inFolder("Health_DB/Health_데일리")
@@ -15,7 +15,7 @@ views:
       - property: date
         direction: DESC
   - type: table
-    name: 인바디 추적
+    name: InBody tracking
     filters:
       and:
         - file.inFolder("Health_DB/Health_데일리")
@@ -32,7 +32,7 @@ views:
       - property: date
         direction: DESC
   - type: table
-    name: 건강지식
+    name: Health knowledge
     filters:
       and:
         - file.inFolder("Health_DB/Health_지식")
@@ -47,7 +47,7 @@ views:
       - property: file.name
         direction: ASC
   - type: table
-    name: 깨달음/게시
+    name: Insights / Published
     filters:
       and:
         - file.inFolder("Health_DB/Health_깨달음")

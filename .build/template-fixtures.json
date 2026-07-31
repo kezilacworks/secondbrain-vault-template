@@ -30,67 +30,67 @@
   ],
   "approved": [
     {
-      "path": "Contents_DB/적요의 파고.md",
+      "path": "Contents_DB/Waves of Stillness.md",
       "field": "creator",
       "value": "Marin Ashby"
     },
     {
-      "path": "Contents_DB/저녁의 온도.md",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "field": "creator",
       "value": "Rowan Vale"
     },
     {
-      "path": "Contents_DB/저녁의 온도.md",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "field": "cast",
       "value": "Rowan Vale"
     },
     {
-      "path": "Contents_DB/저녁의 온도.md",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "field": "rating",
       "value": 4
     },
     {
-      "path": "Contents_DB/저녁의 온도.md",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "field": "watched_date",
       "value": "2025-11-02"
     },
     {
-      "path": "Contents_DB/저녁의 온도.md",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "field": "progress",
       "value": 312
     },
     {
-      "path": "Contents_DB/저녁의 온도.md",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "field": "total_length",
       "value": 312
     },
     {
-      "path": "Contents_DB/종달새 우체통.md",
+      "path": "Contents_DB/The Lark Postbox.md",
       "field": "creator",
       "value": "Elin Prosper"
     },
     {
-      "path": "Contents_DB/종달새 우체통.md",
+      "path": "Contents_DB/The Lark Postbox.md",
       "field": "cast",
       "value": "Juno Field"
     },
     {
-      "path": "Contents_DB/종달새 우체통.md",
+      "path": "Contents_DB/The Lark Postbox.md",
       "field": "last_watched",
       "value": "2026-06-18"
     },
     {
-      "path": "Contents_DB/종달새 우체통.md",
+      "path": "Contents_DB/The Lark Postbox.md",
       "field": "progress",
       "value": 47
     },
     {
-      "path": "Contents_DB/밤의 항해사.md",
+      "path": "Contents_DB/The Night Navigator.md",
       "field": "creator",
       "value": "Cassia Wren"
     },
     {
-      "path": "Contents_DB/밤의 항해사.md",
+      "path": "Contents_DB/The Night Navigator.md",
       "field": "cast",
       "value": [
         "Isla Renn",
@@ -98,199 +98,199 @@
       ]
     },
     {
-      "path": "Contents_DB/밤의 항해사.md",
+      "path": "Contents_DB/The Night Navigator.md",
       "field": "rating",
       "value": 5
     },
     {
-      "path": "Contents_DB/밤의 항해사.md",
+      "path": "Contents_DB/The Night Navigator.md",
       "field": "watched_date",
       "value": "2026-02-14"
     },
     {
-      "path": "Contents_DB/밤의 항해사.md",
+      "path": "Contents_DB/The Night Navigator.md",
       "field": "progress",
       "value": 16
     },
     {
-      "path": "Contents_DB/밤의 항해사.md",
+      "path": "Contents_DB/The Night Navigator.md",
       "field": "total_length",
       "value": 16
     },
     {
-      "path": "Contents_DB/종이배의 계절.md",
+      "path": "Contents_DB/Season of Paper Boats.md",
       "field": "creator",
       "value": "Theo Lark"
     },
     {
-      "path": "Contents_DB/종이배의 계절.md",
+      "path": "Contents_DB/Season of Paper Boats.md",
       "field": "last_watched",
       "value": "2026-05-30"
     },
     {
-      "path": "Contents_DB/종이배의 계절.md",
+      "path": "Contents_DB/Season of Paper Boats.md",
       "field": "progress",
       "value": 9
     },
     {
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
       "field": "source",
       "value": "https://example.com/channel-log"
     },
     {
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
       "field": "first_created",
       "value": "2026-03-11"
     },
     {
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
       "field": "author",
-      "value": "채널로그 팀"
+      "value": "ChannelLog Team"
     },
     {
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
       "field": "tags",
       "value": [
-        "마케팅리포트",
-        "대시보드",
-        "자동화",
-        "캠페인분석",
-        "데이터시각화"
+        "marketing report",
+        "dashboard",
+        "automation",
+        "campaign analysis",
+        "data visualization"
       ]
     },
     {
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
       "field": "rating",
       "value": 4
     },
     {
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
       "field": "memo",
-      "value": "주간 캠페인 성과를 자동으로 취합해 리포트로 뽑아주는 도구. 여러 채널 지표를 한 화면에서 비교할 수 있어 보고서 작성 시간이 줄어든다."
+      "value": "A tool that automatically aggregates weekly campaign results into a report. Comparing metrics across channels on one screen cuts reporting time."
     },
     {
-      "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
+      "path": "Scrap_DB/DocVault - Office Document Template Archive.md",
       "field": "source",
       "value": "https://example.com/document-storehouse"
     },
     {
-      "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
+      "path": "Scrap_DB/DocVault - Office Document Template Archive.md",
       "field": "first_created",
       "value": "2026-01-22"
     },
     {
-      "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
+      "path": "Scrap_DB/DocVault - Office Document Template Archive.md",
       "field": "author",
-      "value": "문서곳간"
+      "value": "DocVault"
     },
     {
-      "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
+      "path": "Scrap_DB/DocVault - Office Document Template Archive.md",
       "field": "tags",
       "value": [
-        "문서서식",
-        "계약서양식",
-        "품의서",
-        "사무템플릿",
-        "아카이브"
+        "document forms",
+        "contract forms",
+        "approval form",
+        "office templates",
+        "archive"
       ]
     },
     {
-      "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
+      "path": "Scrap_DB/DocVault - Office Document Template Archive.md",
       "field": "memo",
-      "value": "각종 사무용 문서(품의서·기안서·계약서 초안) 서식을 모아둔 아카이브. 업종별로 분류돼 있어 새 문서 만들 때 기본 틀로 참고하기 좋다."
+      "value": "An archive of office document forms (approval forms, drafts, contract drafts). Sorted by industry, so it works well as a starting frame for a new document."
     },
     {
-      "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
+      "path": "Scrap_DB/SlideMuseum - Presentation Reference Collection.md",
       "field": "source",
       "value": "https://example.com/slide-museum"
     },
     {
-      "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
+      "path": "Scrap_DB/SlideMuseum - Presentation Reference Collection.md",
       "field": "first_created",
       "value": "2025-09-05"
     },
     {
-      "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
+      "path": "Scrap_DB/SlideMuseum - Presentation Reference Collection.md",
       "field": "tags",
       "value": [
-        "발표자료",
-        "슬라이드디자인",
-        "PT레퍼런스",
-        "정보전달",
-        "레이아웃"
+        "presentation",
+        "slide design",
+        "deck reference",
+        "information delivery",
+        "layout"
       ]
     },
     {
-      "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
+      "path": "Scrap_DB/SlideMuseum - Presentation Reference Collection.md",
       "field": "rating",
       "value": 3.5
     },
     {
-      "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
+      "path": "Scrap_DB/SlideMuseum - Presentation Reference Collection.md",
       "field": "memo",
-      "value": "실제 기업 발표자료 중 레이아웃이 깔끔한 사례를 모아 보여주는 사이트. 정보량이 많은 슬라이드를 어떻게 정리하는지 참고하기 좋다."
+      "value": "A site collecting real corporate decks with clean layouts. Useful for seeing how information-dense slides get organized."
     },
     {
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
       "field": "source",
       "value": "https://example.com/schedule-habit"
     },
     {
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
       "field": "first_created",
       "value": "2026-04-30"
     },
     {
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
       "field": "author",
-      "value": "타임루틴"
+      "value": "TimeRoutine"
     },
     {
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
       "field": "tags",
       "value": [
-        "일정관리",
-        "시간관리",
-        "업무습관",
-        "우선순위",
-        "루틴"
+        "scheduling",
+        "time management",
+        "work habits",
+        "prioritization",
+        "routine"
       ]
     },
     {
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
       "field": "rating",
       "value": 4.5
     },
     {
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
       "field": "memo",
-      "value": "하루 업무를 우선순위 3단계로 나눠 배치하는 습관을 소개하는 글. 회의·집중업무·잡무를 시간대별로 구분하는 예시가 실용적이었다."
+      "value": "An article on the habit of splitting the day into three priority tiers. The example of separating meetings, deep work, and busywork by time block was practical."
     },
     {
-      "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
+      "path": "Scrap_DB/ChromaDrawer - Brand Color Pairing Guide.md",
       "field": "source",
       "value": "https://example.com/chromatic-drawer"
     },
     {
-      "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
+      "path": "Scrap_DB/ChromaDrawer - Brand Color Pairing Guide.md",
       "field": "first_created",
       "value": "2026-06-09"
     },
     {
-      "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
+      "path": "Scrap_DB/ChromaDrawer - Brand Color Pairing Guide.md",
       "field": "tags",
       "value": [
-        "컬러가이드",
-        "브랜드컬러",
-        "배색조합",
-        "무드보드",
-        "팔레트"
+        "color guide",
+        "brand color",
+        "color pairing",
+        "moodboard",
+        "palette"
       ]
     },
     {
-      "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
+      "path": "Scrap_DB/ChromaDrawer - Brand Color Pairing Guide.md",
       "field": "memo",
-      "value": "업종별 브랜드 컬러 조합 사례와 팔레트 코드를 제공하는 플랫폼. 무드보드 만들 때 배색 참고용으로 저장."
+      "value": "A platform offering brand color pairings by industry along with palette codes. Saved as a color reference for building moodboards."
     }
   ]
 }

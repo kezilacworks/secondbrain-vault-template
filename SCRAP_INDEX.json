@@ -1,19 +1,78 @@
 {
   "db": "SCRAP",
-  "generated_at": "2026-07-31T02:27:32.167Z",
+  "generated_at": "2026-07-31T02:33:47.557Z",
   "matched_dirs": [
     "Scrap_DB"
   ],
   "count": 5,
   "items": [
     {
-      "title": "문서곳간 - 사무 문서 템플릿 아카이브",
-      "path": "Scrap_DB/문서곳간 - 사무 문서 템플릿 아카이브.md",
+      "title": "ChannelLog - Marketing Report Automation Tool",
+      "path": "Scrap_DB/ChannelLog - Marketing Report Automation Tool.md",
+      "frontmatter": {
+        "kind": "tool",
+        "source": "https://example.com/channel-log",
+        "first_created": "2026-03-11",
+        "author": "ChannelLog Team",
+        "domain": [
+          "technology",
+          "insight"
+        ],
+        "stage": [
+          "aware"
+        ],
+        "purpose": [
+          "daily_work",
+          "tool"
+        ],
+        "tags": [
+          "marketing report",
+          "dashboard",
+          "automation",
+          "campaign analysis",
+          "data visualization"
+        ],
+        "rating": 4,
+        "memo": "A tool that automatically aggregates weekly campaign results into a report. Comparing metrics across channels on one screen cuts reporting time."
+      }
+    },
+    {
+      "title": "ChromaDrawer - Brand Color Pairing Guide",
+      "path": "Scrap_DB/ChromaDrawer - Brand Color Pairing Guide.md",
+      "frontmatter": {
+        "kind": "platform",
+        "source": "https://example.com/chromatic-drawer",
+        "first_created": "2026-06-09",
+        "author": null,
+        "domain": [
+          "design",
+          "design-aesthetics"
+        ],
+        "stage": [
+          "reference"
+        ],
+        "purpose": [
+          "design_work"
+        ],
+        "tags": [
+          "color guide",
+          "brand color",
+          "color pairing",
+          "moodboard",
+          "palette"
+        ],
+        "rating": null,
+        "memo": "A platform offering brand color pairings by industry along with palette codes. Saved as a color reference for building moodboards."
+      }
+    },
+    {
+      "title": "DocVault - Office Document Template Archive",
+      "path": "Scrap_DB/DocVault - Office Document Template Archive.md",
       "frontmatter": {
         "kind": "resource",
         "source": "https://example.com/document-storehouse",
         "first_created": "2026-01-22",
-        "author": "문서곳간",
+        "author": "DocVault",
         "domain": [
           "insight",
           "culture"
@@ -25,19 +84,48 @@
           "daily_work"
         ],
         "tags": [
-          "문서서식",
-          "계약서양식",
-          "품의서",
-          "사무템플릿",
-          "아카이브"
+          "document forms",
+          "contract forms",
+          "approval form",
+          "office templates",
+          "archive"
         ],
         "rating": null,
-        "memo": "각종 사무용 문서(품의서·기안서·계약서 초안) 서식을 모아둔 아카이브. 업종별로 분류돼 있어 새 문서 만들 때 기본 틀로 참고하기 좋다."
+        "memo": "An archive of office document forms (approval forms, drafts, contract drafts). Sorted by industry, so it works well as a starting frame for a new document."
       }
     },
     {
-      "title": "슬라이드뮤지엄 - 발표자료 레퍼런스 모음",
-      "path": "Scrap_DB/슬라이드뮤지엄 - 발표자료 레퍼런스 모음.md",
+      "title": "How to Split Your Day - A Scheduling Habit Article",
+      "path": "Scrap_DB/How to Split Your Day - A Scheduling Habit Article.md",
+      "frontmatter": {
+        "kind": "article",
+        "source": "https://example.com/schedule-habit",
+        "first_created": "2026-04-30",
+        "author": "TimeRoutine",
+        "domain": [
+          "insight",
+          "culture"
+        ],
+        "stage": [
+          "studied"
+        ],
+        "purpose": [
+          "daily_work"
+        ],
+        "tags": [
+          "scheduling",
+          "time management",
+          "work habits",
+          "prioritization",
+          "routine"
+        ],
+        "rating": 4.5,
+        "memo": "An article on the habit of splitting the day into three priority tiers. The example of separating meetings, deep work, and busywork by time block was practical."
+      }
+    },
+    {
+      "title": "SlideMuseum - Presentation Reference Collection",
+      "path": "Scrap_DB/SlideMuseum - Presentation Reference Collection.md",
       "frontmatter": {
         "kind": "webpage",
         "source": "https://example.com/slide-museum",
@@ -55,102 +143,14 @@
           "daily_work"
         ],
         "tags": [
-          "발표자료",
-          "슬라이드디자인",
-          "PT레퍼런스",
-          "정보전달",
-          "레이아웃"
+          "presentation",
+          "slide design",
+          "deck reference",
+          "information delivery",
+          "layout"
         ],
         "rating": 3.5,
-        "memo": "실제 기업 발표자료 중 레이아웃이 깔끔한 사례를 모아 보여주는 사이트. 정보량이 많은 슬라이드를 어떻게 정리하는지 참고하기 좋다."
-      }
-    },
-    {
-      "title": "채널로그 - 마케팅 리포트 자동화 도구",
-      "path": "Scrap_DB/채널로그 - 마케팅 리포트 자동화 도구.md",
-      "frontmatter": {
-        "kind": "tool",
-        "source": "https://example.com/channel-log",
-        "first_created": "2026-03-11",
-        "author": "채널로그 팀",
-        "domain": [
-          "technology",
-          "insight"
-        ],
-        "stage": [
-          "aware"
-        ],
-        "purpose": [
-          "daily_work",
-          "tool"
-        ],
-        "tags": [
-          "마케팅리포트",
-          "대시보드",
-          "자동화",
-          "캠페인분석",
-          "데이터시각화"
-        ],
-        "rating": 4,
-        "memo": "주간 캠페인 성과를 자동으로 취합해 리포트로 뽑아주는 도구. 여러 채널 지표를 한 화면에서 비교할 수 있어 보고서 작성 시간이 줄어든다."
-      }
-    },
-    {
-      "title": "채도서랍 - 브랜드 컬러 조합 가이드",
-      "path": "Scrap_DB/채도서랍 - 브랜드 컬러 조합 가이드.md",
-      "frontmatter": {
-        "kind": "platform",
-        "source": "https://example.com/chromatic-drawer",
-        "first_created": "2026-06-09",
-        "author": null,
-        "domain": [
-          "design",
-          "design-aesthetics"
-        ],
-        "stage": [
-          "reference"
-        ],
-        "purpose": [
-          "design_work"
-        ],
-        "tags": [
-          "컬러가이드",
-          "브랜드컬러",
-          "배색조합",
-          "무드보드",
-          "팔레트"
-        ],
-        "rating": null,
-        "memo": "업종별 브랜드 컬러 조합 사례와 팔레트 코드를 제공하는 플랫폼. 무드보드 만들 때 배색 참고용으로 저장."
-      }
-    },
-    {
-      "title": "하루를 쪼개는 법 - 일정관리 습관 아티클",
-      "path": "Scrap_DB/하루를 쪼개는 법 - 일정관리 습관 아티클.md",
-      "frontmatter": {
-        "kind": "article",
-        "source": "https://example.com/schedule-habit",
-        "first_created": "2026-04-30",
-        "author": "타임루틴",
-        "domain": [
-          "insight",
-          "culture"
-        ],
-        "stage": [
-          "studied"
-        ],
-        "purpose": [
-          "daily_work"
-        ],
-        "tags": [
-          "일정관리",
-          "시간관리",
-          "업무습관",
-          "우선순위",
-          "루틴"
-        ],
-        "rating": 4.5,
-        "memo": "하루 업무를 우선순위 3단계로 나눠 배치하는 습관을 소개하는 글. 회의·집중업무·잡무를 시간대별로 구분하는 예시가 실용적이었다."
+        "memo": "A site collecting real corporate decks with clean layouts. Useful for seeing how information-dense slides get organized."
       }
     }
   ]

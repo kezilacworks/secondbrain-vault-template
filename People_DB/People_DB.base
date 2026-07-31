@@ -1,6 +1,6 @@
 views:
   - type: table
-    name: 전체
+    name: All
     filters:
       and:
         - file.inFolder("People_DB")
@@ -22,7 +22,7 @@ views:
       - property: file.name
         direction: ASC
   - type: table
-    name: 업무
+    name: Work
     filters:
       and:
         - file.inFolder("People_DB")

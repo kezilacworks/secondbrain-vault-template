@@ -1,6 +1,6 @@
 views:
   - type: table
-    name: 표
+    name: Table
     filters:
       and:
         - file.inFolder("Scrap_DB")

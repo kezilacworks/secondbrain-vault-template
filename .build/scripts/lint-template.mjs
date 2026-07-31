@@ -115,8 +115,8 @@ const WORKSPACE_DIR_RE = /^W\d{2}_/;
 // COMMON_KEYS·FAMILY_KEYS다. 한쪽만 고치면 vault 실물과 이 게이트가 어긋난다.
 const KNOWN_FRONTMATTER_FIELDS = new Set([
   'BMI', 'type', 'created', 'updated', 'first_created',
-  // Contents
-  'platform', 'release_day', 'season_volume', 'total_length', 'progress',
+  // Contents (release_day는 닫힌 7값이라 아래 ENUM_FIELDS로 옮겼다)
+  'platform', 'season_volume', 'total_length', 'progress',
   // Works
   'start_date', 'end_date', 'write_done', 'superseded', 'total_projects', 'total_tasks', 'total_plans',
   // Health 계측 필드군
@@ -176,6 +176,9 @@ const ENUM_FIELDS = {
     'design_video', 'it_dev', 'system_env', 'daily_life',
   ],
   stage: ['aware', 'studying', 'studied', 'reference'],
+  // 연재요일 — 요일은 본래 닫힌 7값이라 자유 텍스트로 둘 이유가 없다(2026-07-31 판정으로 명명표 등재).
+  // 짝은 vault-value-maps.mjs의 RELEASE_DAY_VALUES.
+  release_day: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   purpose: ['design_work', 'vibe_coding', 'video_work', 'writing_work', 'daily_work', 'tool'],
   level: [1, 2, 3, 4],
   doc_role: ['canonical', 'record'],

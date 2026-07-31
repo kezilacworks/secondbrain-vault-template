@@ -16,7 +16,7 @@ watched_date: 2026-02-14
 last_watched: 
 progress: 16
 total_length: 16
-season_volume: 시즌1
+season_volume: Season 1
 platform: 
 release_day: 
 link: 

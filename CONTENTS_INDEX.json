@@ -1,14 +1,70 @@
 {
   "db": "CONTENTS",
-  "generated_at": "2026-07-31T02:27:32.113Z",
+  "generated_at": "2026-07-31T02:33:47.547Z",
   "matched_dirs": [
     "Contents_DB"
   ],
   "count": 5,
   "items": [
     {
-      "title": "밤의 항해사",
-      "path": "Contents_DB/밤의 항해사.md",
+      "title": "Season of Paper Boats",
+      "path": "Contents_DB/Season of Paper Boats.md",
+      "frontmatter": {
+        "category": "animation",
+        "genre": [
+          "fantasy",
+          "healing slice of life"
+        ],
+        "emotions": [
+          "intrigue",
+          "neutral"
+        ],
+        "creator": "Theo Lark",
+        "cast": null,
+        "rating": null,
+        "status": "watching",
+        "watched_date": null,
+        "last_watched": "2026-05-30",
+        "progress": 9,
+        "total_length": null,
+        "season_volume": null,
+        "platform": null,
+        "release_day": "Thursday",
+        "link": null,
+        "remarks": null
+      }
+    },
+    {
+      "title": "The Lark Postbox",
+      "path": "Contents_DB/The Lark Postbox.md",
+      "frontmatter": {
+        "category": "comic",
+        "genre": [
+          "fantasy",
+          "coming of age"
+        ],
+        "emotions": [
+          "flutter",
+          "intrigue"
+        ],
+        "creator": "Elin Prosper",
+        "cast": "Juno Field",
+        "rating": null,
+        "status": "watching",
+        "watched_date": null,
+        "last_watched": "2026-06-18",
+        "progress": 47,
+        "total_length": null,
+        "season_volume": null,
+        "platform": null,
+        "release_day": "Tuesday",
+        "link": null,
+        "remarks": null
+      }
+    },
+    {
+      "title": "The Night Navigator",
+      "path": "Contents_DB/The Night Navigator.md",
       "frontmatter": {
         "category": "series",
         "genre": [
@@ -30,7 +86,7 @@
         "last_watched": null,
         "progress": 16,
         "total_length": 16,
-        "season_volume": "시즌1",
+        "season_volume": "Season 1",
         "platform": null,
         "release_day": null,
         "link": null,
@@ -38,8 +94,8 @@
       }
     },
     {
-      "title": "저녁의 온도",
-      "path": "Contents_DB/저녁의 온도.md",
+      "title": "The Temperature of Evening",
+      "path": "Contents_DB/The Temperature of Evening.md",
       "frontmatter": {
         "category": "book",
         "genre": "slice of life",
@@ -63,8 +119,8 @@
       }
     },
     {
-      "title": "적요의 파고",
-      "path": "Contents_DB/적요의 파고.md",
+      "title": "Waves of Stillness",
+      "path": "Contents_DB/Waves of Stillness.md",
       "frontmatter": {
         "category": "film",
         "genre": "thriller",
@@ -80,62 +136,6 @@
         "season_volume": null,
         "platform": null,
         "release_day": null,
-        "link": null,
-        "remarks": null
-      }
-    },
-    {
-      "title": "종달새 우체통",
-      "path": "Contents_DB/종달새 우체통.md",
-      "frontmatter": {
-        "category": "comic",
-        "genre": [
-          "fantasy",
-          "coming of age"
-        ],
-        "emotions": [
-          "flutter",
-          "intrigue"
-        ],
-        "creator": "Elin Prosper",
-        "cast": "Juno Field",
-        "rating": null,
-        "status": "watching",
-        "watched_date": null,
-        "last_watched": "2026-06-18",
-        "progress": 47,
-        "total_length": null,
-        "season_volume": null,
-        "platform": null,
-        "release_day": "화요일",
-        "link": null,
-        "remarks": null
-      }
-    },
-    {
-      "title": "종이배의 계절",
-      "path": "Contents_DB/종이배의 계절.md",
-      "frontmatter": {
-        "category": "animation",
-        "genre": [
-          "fantasy",
-          "healing slice of life"
-        ],
-        "emotions": [
-          "intrigue",
-          "neutral"
-        ],
-        "creator": "Theo Lark",
-        "cast": null,
-        "rating": null,
-        "status": "watching",
-        "watched_date": null,
-        "last_watched": "2026-05-30",
-        "progress": 9,
-        "total_length": null,
-        "season_volume": null,
-        "platform": null,
-        "release_day": "목요일",
         "link": null,
         "remarks": null
       }

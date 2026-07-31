@@ -5,7 +5,7 @@ properties:
     displayName: Progress (%)
 views:
   - type: table
-    name: 전체
+    name: All
     filters:
       and:
         - file.inFolder("Contents_DB")
@@ -40,4 +40,4 @@ views:
     columnSize:
       note.genre: 371
   - type: table
-    name: 오토
+    name: Auto

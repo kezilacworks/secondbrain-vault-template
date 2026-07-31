@@ -11,13 +11,13 @@ stage:
 purpose: 
   - design_work
 tags: 
-  - 컬러가이드
-  - 브랜드컬러
-  - 배색조합
-  - 무드보드
-  - 팔레트
+  - color guide
+  - brand color
+  - color pairing
+  - moodboard
+  - palette
 rating: 
-memo: "업종별 브랜드 컬러 조합 사례와 팔레트 코드를 제공하는 플랫폼. 무드보드 만들 때 배색 참고용으로 저장."
+memo: "A platform offering brand color pairings by industry along with palette codes. Saved as a color reference for building moodboards."
 ---
 
 <!-- 본문 제거됨 — 고객이 채워넣는 영역 -->
