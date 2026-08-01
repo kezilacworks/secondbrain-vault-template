@@ -4,6 +4,10 @@
 export const SKIP_DIRS = new Set([
   'node_modules', '@eaDir', '.trash', '.obsidian', '.git', '.github', 'scripts',
   '.claude', '.omc', '.stfolder', '.SynologyWorkingDirectory', 'Scrievner',
+  // '_archive': 대체된 문서의 물리 이동처(record-update 3단계 관례) — OS/툴 산출물이 아니라
+  // vault 콘텐츠 모델의 일부지만, 인덱스/코퍼스/lint 어디서도 현행 문서로 취급하지 않는다는
+  // 점에서 이 Set과 같은 의미(재귀 스킵)를 갖는다. 어느 깊이에서든 폴더명 일치로 하위 전체 제외.
+  '_archive',
 ]);
 
 // 자동 생성 산출물 + 동기화 충돌 사본은 인덱스/코퍼스에 넣지 않는다.
