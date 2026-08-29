@@ -1,10 +1,10 @@
 {
   "db": "WORKS",
-  "generated_at": "2026-08-01T09:20:21.110Z",
+  "generated_at": "2026-08-29T02:24:26.009Z",
   "matched_dirs": [
     "W01_{workspace_name}"
   ],
-  "count": 8,
+  "count": 9,
   "items": [
     {
       "title": "P01_{project_name}",
@@ -42,6 +42,20 @@
         "status": "active",
         "doc_role": "canonical",
         "created": null
+      }
+    },
+    {
+      "title": "P01_S01_T00B_pending_improvements",
+      "path": "W01_{workspace_name}/P01_{project_name}/P01_S01_{plan_name}/P01_S01_T00B_pending_improvements.md",
+      "frontmatter": {
+        "kind": "task",
+        "category": "{workspace_name}",
+        "parent": "[[P01_S01_{plan_name}]]",
+        "level": 4,
+        "status": "active",
+        "doc_role": "pending",
+        "created": null,
+        "domain": "{domain}"
       }
     },
     {
