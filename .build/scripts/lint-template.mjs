@@ -181,7 +181,7 @@ const ENUM_FIELDS = {
   release_day: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
   purpose: ['design_work', 'vibe_coding', 'video_work', 'writing_work', 'daily_work', 'tool'],
   level: [1, 2, 3, 4],
-  doc_role: ['canonical', 'record'],
+  doc_role: ['canonical', 'record', 'pending'],
   condition: ['good', 'fair', 'poor'],
   // 정본 = worker/src/contracts.ts EN_STATUS_VOCAB의 DB별 어휘 전체 합집합. 필드가 DB마다 다른
   // 의미로 재사용되므로 DB 구분 없이 전역 합집합으로 검사한다(narrative 텍스트 차단이 목적이라
