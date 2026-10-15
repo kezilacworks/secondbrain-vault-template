@@ -64,6 +64,9 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 1
+          # 이벤트 커밋이 아니라 시작 시점의 브랜치 최신판을 받는다. concurrency로 줄 선 작업이
+          # 앞 작업의 목차 커밋을 모른 채 옛 커밋 위에서 목차를 만들면 push 때 생성 목차끼리 충돌한다.
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-node@v5
         with:
@@ -87,20 +90,23 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # 글롭 add: META_CONFIGS에 DB가 추가되면 산출물도 자동 포함 (하드코딩 목록 금지 원칙)
-          git add -- *_META.md *_INDEX.json SEARCH_CORPUS.json
-          if git diff --staged --quiet; then
-            echo "No index changes to commit"
-            exit 0
-          fi
-          git commit -m "chore: rebuild vault index + search corpus [skip ci]"
-          # 사용자 push(obsidian-git 3분 주기)와 경쟁할 수 있으므로 rebase 후 push를 3회 재시도
+          # 사용자 push(obsidian-git 3분 주기)와 경쟁할 수 있으므로 3회까지 재시도한다.
+          # 실패하면 rebase(생성 목차끼리 충돌)하지 않고, 원격 최신판으로 갈아탄 뒤 목차를 다시 만든다.
           for i in 1 2 3; do
+            # 글롭 add: META_CONFIGS에 DB가 추가되면 산출물도 자동 포함 (하드코딩 목록 금지 원칙)
+            git add -- *_META.md *_INDEX.json SEARCH_CORPUS.json
+            if git diff --staged --quiet; then
+              echo "No index changes to commit"
+              exit 0
+            fi
+            git commit -m "chore: rebuild vault index + search corpus [skip ci]"
             if git push; then
               exit 0
             fi
-            echo "push 실패 ($i/3) — rebase 후 재시도"
-            git pull --rebase --autostash || exit 1
+            echo "push 실패 ($i/3) — 원격 최신판 위에서 목차를 다시 만든 뒤 재시도"
+            git fetch --depth 1 origin "$GITHUB_REF_NAME" || exit 1
+            git reset --hard FETCH_HEAD
+            (cd .build && npm install --no-audit --no-fund && npm run build-index && npm run build-search-corpus) || exit 1
           done
           echo "::error::인덱스 커밋 push가 3회 모두 실패했습니다"
           exit 1
