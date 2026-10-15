@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build-index": "node scripts/build-index.mjs",
-    "build-search-corpus": "node scripts/build-search-corpus.mjs"
+    "build-search-corpus": "node scripts/build-search-corpus.mjs && node scripts/build-routing-index.mjs && node scripts/build-journal-index.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3"
