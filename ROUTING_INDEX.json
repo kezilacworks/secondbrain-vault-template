@@ -1,0 +1,3 @@
+{"format":1,"generator_version":"1.0.2","built_from":"4fc36add4ed1ed7dc08dfc6a31a10381fd76661a","source_keys":"en","targets_count":2,"index_missing":0,"index_found":true,"notes_total":94,"small_vault":false,"coverage":{"active_projects":1,"named_projects":1,"alias_needed":["P01_{project_name}"]},"confusables":{},"targets":[
+{"id":"P01_{project_name}","path":"W01_{workspace_name}/P01_{project_name}/P01_{project_name}.md","kind":"project","parent":"W01_{workspace_name}","status":"active","name_exact_only":true,"plans":[{"id":"P01_S01_{plan_name}","status":"done","active":false}]}
+]}

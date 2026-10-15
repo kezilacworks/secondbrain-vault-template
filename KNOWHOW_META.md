@@ -2,7 +2,7 @@
 
 > Auto-generated (indexer / GitHub Actions). Do not edit — it is overwritten on the next push.
 > Index of small personal settings and tool knowhow. Three axes = domain / kind / tool.
-> Last updated: 2026-08-29T02:24:26.036Z · Item count: 0 · Matched folders: (none)
+> Last updated: 2026-10-15T12:32:19.687Z · Item count: 0 · Matched folders: (none)
 > The abbreviation dictionary lives in a separate file, `KNOWHOW_약어.md` (skill-managed — the indexer never touches it).
 
 ## By tool
